@@ -1,0 +1,39 @@
+<MenuScreen>:
+	BoxLayout:
+		orientation: "vertical"
+		Label:
+			text: "Tela de Menu"
+<CadastrarScreen>:
+	txt_usuario: txt_usuario 
+	txt_email: txt_email
+	txt_senha: txt_senha
+	txt_csenha: txt_csenha
+	lbl_saida: lbl_saida
+	BoxLayout:
+		orientation: "vertical"
+		Label:
+			text: "Tela de Cadastro"
+		TextInput:
+			id: txt_usuario
+			hint_text: "Usuario"
+		TextInput:
+			id: txt_email
+			hint_text: "E-Mail"
+		TextInput:
+			id: txt_senha
+			hint_text: "Senha"
+			password: True
+			password_mask: "*"
+		TextInput:
+			id: txt_csenha
+			hint_text: "Confirmar Senha"
+			password: True
+			password_mask: "*"
+		Label:
+			id: lbl_saida
+			text: "Aguardando Interação..."
+		Button:
+			text: "Cadastrar"
+		Button:
+			text: "Voltar ao Menu"
+			on_press: root.manager.current = "menu"
