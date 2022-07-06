@@ -1,0 +1,14 @@
+Dengue
+Esquistossomose
+Febre Amarela
+Febre de Chikungunya
+Filariose
+Hanseniase
+Hepatite A
+Hepatite B
+Hepatite C
+Hepatite D
+Leishmanioses
+Malaria
+Tuberculose
+Zika Virus

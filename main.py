@@ -1,57 +1,52 @@
-from tkinter import *
-import tkinter as tk
-from tkinter import ttk
-
-class App(tk.Tk):
-    def __init__(self):
-        super().__init__()
-
-        self.geometry('300x150')
-        self.resizable(False, False)
-        self.title('Sistema Especialista de Diagnóstico Médico')
-
-        # UI options
-        paddings = {'padx': 5, 'pady': 5}
-        entry_font = {'font': ('Helvetica', 11)}
-
-        # configure the grid
-        self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=3)
-
-        doencaum = tk.StringVar()
-        doencadois = tk.StringVar()
-
-        # heading
-        heading = ttk.Label(self, text='Sintomas', style='Heading.TLabel')
-        heading.grid(column=0, row=0, columnspan=2, pady=5, sticky=tk.N)
-
-        # doencaum
-        doencaum_label = ttk.Label(self, text="doencaum:")
-        doencaum_label.grid(column=0, row=1, sticky=tk.W, **paddings)
-
-        doencaum_entry = ttk.Entry(self, textvariable=doencaum, **entry_font)
-        doencaum_entry.grid(column=1, row=1, sticky=tk.E, **paddings)
-        
-		# doencaum
-        doencadois_label = ttk.Label(self, text="doencadois:")
-        doencadois_label.grid(column=0, row=2, sticky=tk.W, **paddings)
-
-        doencadois_entry = ttk.Entry(self, textvariable=doencadois, **entry_font)
-        doencadois_entry.grid(column=1, row=2, sticky=tk.E, **paddings)
-
-        # login button
-        login_button = ttk.Button(self, text="Login")
-        login_button.grid(column=1, row=3, sticky=tk.E, **paddings)
-
-        # configure style
-        self.style = ttk.Style(self)
-        self.style.configure('TLabel', font=('Helvetica', 11))
-        self.style.configure('TButton', font=('Helvetica', 11))
-
-        # heading style
-        self.style.configure('Heading.TLabel', font=('Helvetica', 12))
+from rules import Rules
+from experta import *
+lista_doencas = []
+doencas_sintomas = []
+doencas_map = {}
 
 
+# loads the knowledge from .txt files into variables to allow the code to use it
+def preprocess():
+    #global diseases_list, diseases_symptoms, symptom_map, d_desc_map, d_treatment_map
+    doencas = open("doencas.txt")
+    doencas_t = doencas.read()
+    lista_doencas = doencas_t.split("\n")
+    doencas.close()
+
+    for doenca in lista_doencas:
+        doencas_s_file = open("Sintomas/" + doenca + ".txt")
+        doencas_s_data = doencas_s_file.read()
+        s_list = doencas_s_data.split("\n")
+        doencas_sintomas.append(s_list)
+        doencas_map[str(s_list)] = doenca
+        doencas_s_file.close()
+
+
+def identificar_doenca(*arguments):
+    sintoma_list = []
+    for sintoma in arguments:
+        sintoma_list.append(sintoma)
+
+    return doencas_map[str(sintoma_list)]
+
+
+def if_not_matched(doenca):
+    print("")
+    id_disease = doenca
+    print("")
+    print("The most probable disease that you have is %s\n" % (id_disease))
+    print("not matched")
+
+
+# driver function
 if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+    preprocess()
+    # creating class object
+    engine = Rules(doencas_map, if_not_matched)
+    # loop to keep running the code until user says no when asked for another diagnosis
+    while 1:
+        engine.reset()
+        engine.run()
+        print("Would you like to diagnose some other symptoms?\n Reply sim or nao")
+        if input() == "nao":
+            exit()

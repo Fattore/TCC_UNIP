@@ -1,0 +1,92 @@
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_3(self):
+    self.declare(Fact(doenca="Febre de Chikungunya"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_4(self):
+    self.declare(Fact(doenca="Filariose"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_5(self):
+    self.declare(Fact(doenca="Hanseniase"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_6(self):
+    self.declare(Fact(doenca="Hepatite A"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_7(self):
+    self.declare(Fact(doenca="Hepatite B"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_8(self):
+    self.declare(Fact(doenca="Hepatite C"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_9(self):
+    self.declare(Fact(doenca="Hepatite D"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_10(self):
+    self.declare(Fact(doenca="Influenza"))
+
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_11(self):
+    self.declare(Fact(doenca="Leishmaniose"))
+
+@Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_12(self):
+    self.declare(Fact(doenca="Malaria"))
+
+Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_13(self):
+    self.declare(Fact(doenca="Tuberculose"))
+
+Rule(
+    Fact(action="procurar_doenca"),
+    Fact(dor_de_cabeca="nao"),
+)
+def doenca_14(self):
+    self.declare(Fact(doenca="Zika"))
