@@ -1,2 +1,4 @@
-baixa
-alta
+sim
+sim
+sim
+sim
