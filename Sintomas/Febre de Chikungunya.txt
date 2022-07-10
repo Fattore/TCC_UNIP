@@ -1,3 +1,5 @@
+sim
+sim
 nao
 nao
 nao
@@ -19,7 +21,6 @@ nao
 nao
 nao
 nao
-nao
-nao
-nao
+sim
+sim
 nao
