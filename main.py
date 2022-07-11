@@ -34,8 +34,7 @@ def if_not_matched(doenca):
     print("")
     id_disease = doenca
     print("")
-    print("The most probable disease that you have is %s\n" % (id_disease))
-    print("not matched")
+    print("A doença mais provavel é %s\n" % (id_disease))
 
 
 # driver function
@@ -47,6 +46,6 @@ if __name__ == "__main__":
     while 1:
         engine.reset()
         engine.run()
-        print("Would you like to diagnose some other symptoms?\n Reply sim or nao")
+        print("Gostaria de diagnosticas algum outro sintoma?\n Responda sim ou não.")
         if input() == "nao":
             exit()
