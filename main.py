@@ -1,9 +1,7 @@
 from rules import Rules
-from experta import *
 lista_doencas = []
 doencas_sintomas = []
 doencas_map = {}
-
 
 # loads the knowledge from .txt files into variables to allow the code to use it
 def preprocess():
@@ -30,7 +28,7 @@ def identificar_doenca(*arguments):
     return doencas_map[str(sintoma_list)]
 
 
-def if_not_matched(doenca):
+def nao_encontrado(doenca):
     print("")
     id_disease = doenca
     print("")
@@ -41,11 +39,11 @@ def if_not_matched(doenca):
 if __name__ == "__main__":
     preprocess()
     # creating class object
-    engine = Rules(doencas_map, if_not_matched)
+    engine = Rules(doencas_map, nao_encontrado)
     # loop to keep running the code until user says no when asked for another diagnosis
     while 1:
         engine.reset()
         engine.run()
-        print("Gostaria de diagnosticas algum outro sintoma?\n Responda sim ou não.")
+        print("Gostaria de diagnosticar algum outro sintoma?\n Responda sim ou não.")
         if input() == "nao":
             exit()
