@@ -1,4 +1,4 @@
-from rules import Rules
+from greetings import Greetings
 lista_doencas = []
 doencas_sintomas = []
 doencas_map = {}
@@ -39,7 +39,7 @@ def nao_encontrado(doenca):
 if __name__ == "__main__":
     preprocess()
     # creating class object
-    engine = Rules(doencas_map, nao_encontrado)
+    engine = Greetings(doencas_map, nao_encontrado)
     # loop to keep running the code until user says no when asked for another diagnosis
     while 1:
         engine.reset()

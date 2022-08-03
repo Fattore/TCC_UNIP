@@ -1,9 +1,9 @@
 from experta import *
 
-class Rules(KnowledgeEngine):
+class Greetings(KnowledgeEngine):
 
-    def __init__(self, lista_sintomas, nao_encontrado):
-        self.lista_sintomas = lista_sintomas
+    def __init__(self, doencas_map, nao_encontrado):
+        self.doencas_map = doencas_map
         self.nao_encontrado = nao_encontrado
         KnowledgeEngine.__init__(self)
 
@@ -131,38 +131,6 @@ class Rules(KnowledgeEngine):
 
     @Rule(
         Fact(action="procurar_doenca"),
-        Fact(dor_de_cabeca="alta"),
-        Fact(febre="alta"),
-        Fact(tontura="alta"),
-        Fact(dor_olho="alta"),
-        Fact(perda_paladar_apetite="alta"),
-        Fact(manchas_erupcoes="alta"),
-        Fact(cansaco="alta"),
-        Fact(dor_corpo="alta"),
-        Fact(dor_osso_articulacao="alta"),
-        Fact(dor_abdominal="alta"),
-        Fact(nausea_vomito="alta"),
-        Fact(tosse="nao"),
-        Fact(calafrio="nao"),
-        Fact(suores="nao"),
-        Fact(fraqueza="nao"),
-        Fact(diarreia="nao"),
-        Fact(coceira_anal="nao"),
-        Fact(palpitacao="nao"),
-        Fact(impotencia="nao"),
-        Fact(emagrecimento="nao"),
-        Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
-        Fact(sens_plen_gastr="nao"),
-        Fact(dor_costas="nao"),
-        Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"),
-    )
-    def doenca_0(self):
-        self.declare(Fact(doenca="Dengue"))
-    
-    @Rule(
-        Fact(action="procurar_doenca"),
         Fact(dor_de_cabeca="sim"),
         Fact(febre="sim"),
         Fact(tontura="sim"),
@@ -184,14 +152,47 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="sim"),
         Fact(emagrecimento="sim"),
         Fact(end_aum_figado="sim"),        
-        Fact(dor_moscular="sim"),
+        Fact(dor_muscular="sim"),
         Fact(sens_plen_gastr="sim"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
         Fact(mal_estar="nao"),
     )
-    def doenca_1(self):
+    def doenca_0(self):
         self.declare(Fact(doenca="Esquistossomose"))
+
+
+    @Rule(
+        Fact(action="procurar_doenca"),
+        Fact(dor_de_cabeca="alta"),
+        Fact(febre="alta"),
+        Fact(tontura="alta"),
+        Fact(dor_olho="alta"),
+        Fact(perda_paladar_apetite="alta"),
+        Fact(manchas_erupcoes="alta"),
+        Fact(cansaco="alta"),
+        Fact(dor_corpo="alta"),
+        Fact(dor_osso_articulacao="alta"),
+        Fact(dor_abdominal="alta"),
+        Fact(nausea_vomito="alta"),
+        Fact(tosse="nao"),
+        Fact(calafrio="nao"),
+        Fact(suores="nao"),
+        Fact(fraqueza="nao"),
+        Fact(diarreia="nao"),
+        Fact(coceira_anal="nao"),
+        Fact(palpitacao="nao"),
+        Fact(impotencia="nao"),
+        Fact(emagrecimento="nao"),
+        Fact(end_aum_figado="nao"),        
+        Fact(dor_muscular="nao"),
+        Fact(sens_plen_gastr="nao"),
+        Fact(dor_costas="nao"),
+        Fact(dor_articulacao="nao"),
+        Fact(mal_estar="nao"),
+    )
+    def doenca_1(self):
+        self.declare(Fact(doenca="Dengue"))
 
 
     @Rule(       
@@ -217,7 +218,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="sim"),
+        Fact(dor_muscular="sim"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -249,7 +250,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="sim"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="sim"),
         Fact(dor_articulacao="sim"),
@@ -281,7 +282,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -313,7 +314,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -345,7 +346,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -377,7 +378,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -410,7 +411,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="sim"),
+        Fact(dor_muscular="sim"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -442,7 +443,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -474,7 +475,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -506,7 +507,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -538,7 +539,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="nao"),
+        Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -570,7 +571,7 @@ class Rules(KnowledgeEngine):
         Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
-        Fact(dor_moscular="sim"),
+        Fact(dor_muscular="sim"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
@@ -681,11 +682,11 @@ class Rules(KnowledgeEngine):
         ]
         max_count = 0
         max_disease = ""
-        for key, val in self.   lista_sintomas.items():
+        for key, val in self.doencas_map.items():
             count = 0
             temp_list = eval(key)
             for j in range(0, len(lis)):
-                if temp_list[j] == lis[j] and (lis[j] == "alta" or lis[j] == "baixa" or lis[j] == "sim"):
+                if temp_list[j] == lis[j] and (lis[j] == "alta" or lis[j] == "baixa" or lis[j] == "sim" or lis[j] == "nao"):
                     count = count + 1
             if count > max_count:
                 max_count = count
