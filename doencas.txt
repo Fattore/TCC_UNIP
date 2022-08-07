@@ -8,6 +8,7 @@ Hepatite A
 Hepatite B
 Hepatite C
 Hepatite D
+Influenza
 Leishmanioses
 Malaria
 Tuberculose

@@ -19,115 +19,167 @@ class Greetings(KnowledgeEngine):
         yield Fact(action="procurar_doenca")
 
     # perguntar ao usuario
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_de_cabeca=W())), salience=26)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_de_cabeca=W())), salience=90)
     def sintoma_0(self):
         self.declare(Fact(dor_de_cabeca=input("dor de cabeça: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(febre=W())), salience=25)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(febre=W())), salience=89)
     def sintoma_1(self):
         self.declare(Fact(febre=input("febre: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(tontura=W())), salience=24)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(tontura=W())), salience=88)
     def sintoma_2(self):
         self.declare(Fact(tontura=input("tontura: ")))    
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_olho=W())), salience=23)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_olho=W())), salience=87)
     def sintoma_3(self):
         self.declare(Fact(dor_olho=input("dor no olho: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_paladar_apetite=W())), salience=22)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_paladar=W())), salience=86)
     def sintoma_4(self):
-        self.declare(Fact(perda_paladar_apetite=input("perda no paladar e no apetite: ")))
+        self.declare(Fact(perda_paladar=input("perda no paladar e no apetite: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(manchas_erupcoes=W())), salience=21)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(manchas_erupcoes=W())), salience=85)
     def sintoma_5(self):
-        self.declare(Fact(manchas_erupcoes=input("manchas e erupçoes na pele: ")))
+        self.declare(Fact(manchas_erupcoes=input("manchas ou erupçoes na pele: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(cansaco=W())), salience=20)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(cansaco=W())), salience=84)
     def sintoma_6(self):
         self.declare(Fact(cansaco=input("cansaço: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_corpo=W())), salience=19)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_corpo=W())), salience=83)
     def sintoma_7(self):
         self.declare(Fact(dor_corpo=input("dor no corpo: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_osso_articulacao=W())), salience=18)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_osso=W())), salience=82)
     def sintoma_8(self):
-        self.declare(Fact(dor_osso_articulacao=input("dor nos ossos e nas articulações: ")))
+        self.declare(Fact(dor_osso=input("dor nos ossos ou nas articulações: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_abdominal=W())), salience=17)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_abdominal=W())), salience=81)
     def sintoma_9(self):
         self.declare(Fact(dor_abdominal=input("dor abdominal: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(nausea_vomito=W())), salience=16)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(nausea_vomito=W())), salience=80)
     def sintoma_10(self):
-        self.declare(Fact(nausea_vomito=input("nausea e vomito: ")))
+        self.declare(Fact(nausea_vomito=input("nausea ou vomito: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(tosse=W())), salience=15)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(tosse=W())), salience=79)
     def sintoma_11(self):
         self.declare(Fact(tosse=input("tosse: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(calafrio=W())), salience=14)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(calafrio=W())), salience=78)
     def sintoma_12(self):
         self.declare(Fact(calafrio=input("calafrio: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(suores=W())), salience=13)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(suores=W())), salience=77)
     def sintoma_13(self):
         self.declare(Fact(suores=input("suores: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(fraqueza=W())), salience=12)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(fraqueza=W())), salience=76)
     def sintoma_14(self):
         self.declare(Fact(fraqueza=input("fraqueza: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(diarreia=W())), salience=11)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(diarreia=W())), salience=75)
     def sintoma_15(self):
         self.declare(Fact(diarreia=input("diarreia: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(coceira_anal=W())), salience=10)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(coceira_anal=W())), salience=74)
     def sintoma_16(self):
         self.declare(Fact(coceira_anal=input("coceira_anal: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(palpitacao=W())), salience=9)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(palpitacao=W())), salience=73)
     def sintoma_17(self):
         self.declare(Fact(palpitacao=input("palpitação: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(impotencia=W())), salience=8)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(impotencia=W())), salience=72)
     def sintoma_18(self):
         self.declare(Fact(impotencia=input("impotencia: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(emagrecimento=W())), salience=7)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(emagrecimento=W())), salience=71)
     def sintoma_19(self):
         self.declare(Fact(emagrecimento=input("emagrecimento: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(end_aum_figado=W())), salience=6)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(end_aum_figado=W())), salience=70)
     def sintoma_20(self):
         self.declare(Fact(end_aum_figado=input("endurecimento ou aumento do figado: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_muscular=W())), salience=5)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_muscular=W())), salience=69)
     def sintoma_21(self):
         self.declare(Fact(dor_muscular=input("dor muscular: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(sens_plen_gastr=W())), salience=4)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(sens_plen_gastr=W())), salience=68)
     def sintoma_22(self):
         self.declare(Fact(sens_plen_gastr=input("sensação de plenitude gastrica: ")))
 
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_costas=W())), salience=3)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_costas=W())), salience=67)
     def sintoma_23(self):
         self.declare(Fact(dor_costas=input("dores nas costas: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_articulacao=W())), salience=2)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_articulacao=W())), salience=66)
     def sintoma_24(self):
         self.declare(Fact(dor_articulacao=input("dor articulacao: ")))
     
-    @Rule(Fact(action="procurar_doenca"), NOT(Fact(mal_estar=W())), salience=1)
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(mal_estar=W())), salience=65)
     def sintoma_25(self):
         self.declare(Fact(mal_estar=input("mal estar: ")))
 
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(acumulo_liq=W())), salience=64)
+    def sintoma_26(self):
+        self.declare(Fact(acumulo_liq=input("Acumulo de liquido nas pernas ou braços: ")))
 
-    ###@Rule(Fact(action="procurar_doenca"), NOT(Fact(sens_plen_gastr=W())), salience=3)
-    ###def sintoma_7(self):
-        ###self.declare(Fact(sens_plen_gastr=input("sensação de plenitude gastrica: ")))
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(anemia_intensa=W())), salience=63)
+    def sintoma_27(self):
+        self.declare(Fact(anemia_intensa=input("Anemia instensa: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(anorexia=W())), salience=62)
+    def sintoma_28(self):
+        self.declare(Fact(anorexia=input("Anorexia: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(astenia=W())), salience=61)
+    def sintoma_29(self):
+        self.declare(Fact(astenia=input("Astenia: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(aum_baco=W())), salience=60)
+    def sintoma_30(self):
+        self.declare(Fact(aum_baco=input("Aumento do baço: ")))
+
     
+    @Rule(
+        Fact(action="procurar_doenca"),
+        Fact(dor_de_cabeca="sim"),
+        Fact(febre="sim"),
+        Fact(tontura="sim"),
+        Fact(dor_olho="sim"),
+        Fact(perda_paladar="sim"),
+        Fact(manchas_erupcoes="sim"),
+        Fact(cansaco="sim"),
+        Fact(dor_corpo="sim"),
+        Fact(dor_osso="sim"),
+        Fact(dor_abdominal="sim"),
+        Fact(nausea_vomito="sim"),
+        Fact(tosse="nao"),
+        Fact(calafrio="nao"),
+        Fact(suores="nao"),
+        Fact(fraqueza="nao"),
+        Fact(diarreia="nao"),
+        Fact(coceira_anal="nao"),
+        Fact(palpitacao="nao"),
+        Fact(impotencia="nao"),
+        Fact(emagrecimento="nao"),
+        Fact(end_aum_figado="nao"),        
+        Fact(dor_muscular="nao"),
+        Fact(sens_plen_gastr="nao"),
+        Fact(dor_costas="nao"),
+        Fact(dor_articulacao="sim"),
+        Fact(mal_estar="nao"),
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
+    )
+    def doenca_0(self):
+        self.declare(Fact(doenca="Dengue"))
 
     @Rule(
         Fact(action="procurar_doenca"),
@@ -135,11 +187,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="sim"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="sim"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="sim"),
@@ -157,55 +209,28 @@ class Greetings(KnowledgeEngine):
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
         Fact(mal_estar="nao"),
-    )
-    def doenca_0(self):
-        self.declare(Fact(doenca="Esquistossomose"))
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
 
-
-    @Rule(
-        Fact(action="procurar_doenca"),
-        Fact(dor_de_cabeca="alta"),
-        Fact(febre="alta"),
-        Fact(tontura="alta"),
-        Fact(dor_olho="alta"),
-        Fact(perda_paladar_apetite="alta"),
-        Fact(manchas_erupcoes="alta"),
-        Fact(cansaco="alta"),
-        Fact(dor_corpo="alta"),
-        Fact(dor_osso_articulacao="alta"),
-        Fact(dor_abdominal="alta"),
-        Fact(nausea_vomito="alta"),
-        Fact(tosse="nao"),
-        Fact(calafrio="nao"),
-        Fact(suores="nao"),
-        Fact(fraqueza="nao"),
-        Fact(diarreia="nao"),
-        Fact(coceira_anal="nao"),
-        Fact(palpitacao="nao"),
-        Fact(impotencia="nao"),
-        Fact(emagrecimento="nao"),
-        Fact(end_aum_figado="nao"),        
-        Fact(dor_muscular="nao"),
-        Fact(sens_plen_gastr="nao"),
-        Fact(dor_costas="nao"),
-        Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"),
     )
     def doenca_1(self):
-        self.declare(Fact(doenca="Dengue"))
+        self.declare(Fact(doenca="Esquistossomose"))
 
 
     @Rule(       
         Fact(action="procurar_doenca"),
         Fact(dor_de_cabeca="sim"),
-        Fact(febre="sim"),
+        Fact(febre="nao"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="sim"),
         Fact(tosse="nao"),
@@ -222,7 +247,13 @@ class Greetings(KnowledgeEngine):
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="sim"), 
+        Fact(mal_estar="sim"),
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
+ 
     )
     def doenca_2(self):
         self.declare(Fact(doenca="Febre Amarela"))
@@ -233,11 +264,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="nao"),
@@ -247,7 +278,7 @@ class Greetings(KnowledgeEngine):
         Fact(diarreia="nao"),
         Fact(coceira_anal="nao"),
         Fact(palpitacao="nao"),
-        Fact(impotencia="sim"),
+        Fact(impotencia="nao"),
         Fact(emagrecimento="nao"),
         Fact(end_aum_figado="nao"),        
         Fact(dor_muscular="nao"),
@@ -255,6 +286,11 @@ class Greetings(KnowledgeEngine):
         Fact(dor_costas="sim"),
         Fact(dor_articulacao="sim"),
         Fact(mal_estar="nao"), 
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
     def doenca_3(self):
         self.declare(Fact(doenca="Febre de Chikungunya"))
@@ -262,14 +298,14 @@ class Greetings(KnowledgeEngine):
     @Rule(
         Fact(action="procurar_doenca"),
         Fact(dor_de_cabeca="sim"),
-        Fact(febre="nao"),
+        Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="nao"),
@@ -287,6 +323,11 @@ class Greetings(KnowledgeEngine):
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
         Fact(mal_estar="nao"),
+        Fact(acumulo_liq="sim"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
     def doenca_4(self):
         self.declare(Fact(doenca="Filariose"))
@@ -297,11 +338,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="nao"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="sim"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="nao"),
@@ -319,6 +360,11 @@ class Greetings(KnowledgeEngine):
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
         Fact(mal_estar="nao"),
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
     def doenca_5(self):
         self.declare(Fact(doenca="Hanseniase"))
@@ -329,12 +375,12 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
-        Fact(dor_abdominal="nao"),
+        Fact(dor_osso="nao"),
+        Fact(dor_abdominal="sim"),
         Fact(nausea_vomito="sim"),
         Fact(tosse="nao"),
         Fact(calafrio="nao"),
@@ -350,7 +396,12 @@ class Greetings(KnowledgeEngine):
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"), 
+        Fact(mal_estar="nao"),
+        Fact(acumulo_liq="nao"), 
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
     def doenca_6(self):
         self.declare(Fact(doenca="Hepatite A"))
@@ -361,11 +412,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="sim"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="nao"),
@@ -383,6 +434,11 @@ class Greetings(KnowledgeEngine):
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
         Fact(mal_estar="sim"), 
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
     def doenca_7(self):
         self.declare(Fact(doenca="Hepatite B"))
@@ -390,15 +446,14 @@ class Greetings(KnowledgeEngine):
     @Rule(
         Fact(action="procurar_doenca"),
         Fact(dor_de_cabeca="nao"),
-        Fact(dor_de_cabeca="nao"),
         Fact(febre="nao"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
-        Fact(cansaco="sim"),
-        Fact(dor_corpo="sim"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(cansaco="nao"),
+        Fact(dor_corpo="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="sim"),
         Fact(tosse="nao"),
@@ -415,7 +470,12 @@ class Greetings(KnowledgeEngine):
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"),
+        Fact(mal_estar="sim"), 
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
     def doenca_8(self):
         self.declare(Fact(doenca="Hepatite C"))
@@ -426,12 +486,12 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="sim"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="sim"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
-        Fact(dor_abdominal="nao"),
+        Fact(dor_osso="nao"),
+        Fact(dor_abdominal="sim"),
         Fact(nausea_vomito="sim"),
         Fact(tosse="nao"),
         Fact(calafrio="nao"),
@@ -447,10 +507,52 @@ class Greetings(KnowledgeEngine):
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"), 
+        Fact(mal_estar="nao"),  
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
     def doenca_9(self):
         self.declare(Fact(doenca="Hepatite D"))
+
+    @Rule(
+        Fact(action="procurar_doenca"),
+        Fact(dor_de_cabeca="nao"),
+        Fact(febre="sim"),
+        Fact(tontura="nao"),
+        Fact(dor_olho="nao"),
+        Fact(perda_paladar="nao"),
+        Fact(manchas_erupcoes="nao"),
+        Fact(cansaco="nao"),
+        Fact(dor_corpo="nao"),
+        Fact(dor_osso="nao"),
+        Fact(dor_abdominal="nao"),
+        Fact(nausea_vomito="sim"),
+        Fact(tosse="sim"),
+        Fact(calafrio="sim"),
+        Fact(suores="nao"),
+        Fact(fraqueza="nao"),
+        Fact(diarreia="sim"),
+        Fact(coceira_anal="nao"),
+        Fact(palpitacao="nao"),
+        Fact(impotencia="nao"),
+        Fact(emagrecimento="nao"),
+        Fact(end_aum_figado="nao"),        
+        Fact(dor_muscular="nao"),
+        Fact(sens_plen_gastr="nao"),
+        Fact(dor_costas="nao"),
+        Fact(dor_articulacao="sim"),
+        Fact(mal_estar="sim"),  
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
+    )
+    def doenca_10(self):
+        self.declare(Fact(doenca="Influenza"))
     
     @Rule(
         Fact(action="procurar_doenca"),
@@ -458,11 +560,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="nao"),
@@ -473,15 +575,20 @@ class Greetings(KnowledgeEngine):
         Fact(coceira_anal="nao"),
         Fact(palpitacao="nao"),
         Fact(impotencia="nao"),
-        Fact(emagrecimento="nao"),
+        Fact(emagrecimento="sim"),
         Fact(end_aum_figado="nao"),        
         Fact(dor_muscular="nao"),
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"), 
+        Fact(mal_estar="nao"),  
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="sim"),
     )
-    def doenca_10(self):
+    def doenca_11(self):
         self.declare(Fact(doenca="Leishmanioses"))
     
     @Rule(
@@ -490,11 +597,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="sim"),
         Fact(tosse="nao"),
@@ -511,9 +618,14 @@ class Greetings(KnowledgeEngine):
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"), 
+        Fact(mal_estar="nao"),  
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="sim"),
+        Fact(anorexia="sim"),
+        Fact(astenia="sim"),
+        Fact(aum_baco="nao"),
     )
-    def doenca_11(self):
+    def doenca_12(self):
         self.declare(Fact(doenca="Malaria"))
     
     @Rule(
@@ -522,11 +634,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="nao"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="nao"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="sim"),
@@ -543,9 +655,14 @@ class Greetings(KnowledgeEngine):
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"), 
+        Fact(mal_estar="nao"),  
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
-    def doenca_12(self):
+    def doenca_13(self):
         self.declare(Fact(doenca="Tuberculose"))
 
     @Rule(
@@ -554,11 +671,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre="sim"),
         Fact(tontura="nao"),
         Fact(dor_olho="sim"),
-        Fact(perda_paladar_apetite="nao"),
+        Fact(perda_paladar="nao"),
         Fact(manchas_erupcoes="nao"),
         Fact(cansaco="nao"),
         Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
+        Fact(dor_osso="nao"),
         Fact(dor_abdominal="sim"),
         Fact(nausea_vomito="nao"),
         Fact(tosse="nao"),
@@ -575,9 +692,14 @@ class Greetings(KnowledgeEngine):
         Fact(sens_plen_gastr="nao"),
         Fact(dor_costas="nao"),
         Fact(dor_articulacao="nao"),
-        Fact(mal_estar="nao"), 
+        Fact(mal_estar="nao"),  
+        Fact(acumulo_liq="nao"),
+        Fact(anemia_intensa="nao"),
+        Fact(anorexia="nao"),
+        Fact(astenia="nao"),
+        Fact(aum_baco="nao"),
     )
-    def doenca_13(self):
+    def doenca_14(self):
         self.declare(Fact(doenca="Zika Virus"))
 
     # when the user's input doesn't match any disease in the knowledge base
@@ -596,11 +718,11 @@ class Greetings(KnowledgeEngine):
         Fact(febre=MATCH.febre),
         Fact(tontura=MATCH.tontura),
         Fact(dor_olho=MATCH.dor_olho),
-        Fact(perda_paladar_apetite=MATCH.perda_paladar_apetite),
+        Fact(perda_paladar=MATCH.perda_paladar),
         Fact(manchas_erupcoes=MATCH.manchas_erupcoes),
         Fact(cansaco=MATCH.cansaco),
         Fact(dor_corpo=MATCH.dor_corpo),
-        Fact(dor_osso_articulacao=MATCH.dor_osso_articulacao),
+        Fact(dor_osso=MATCH.dor_osso),
         Fact(dor_abdominal=MATCH.dor_abdominal),
         Fact(nausea_vomito=MATCH.nausea_vomito),
         Fact(tosse=MATCH.tosse),
@@ -618,6 +740,11 @@ class Greetings(KnowledgeEngine):
         Fact(dor_costas=MATCH.dor_costas),
         Fact(dor_articulacao=MATCH.dor_articulacao),
         Fact(mal_estar=MATCH.mal_estar),
+        Fact(acumulo_liq=MATCH.acumulo_liq),
+        Fact(anemia_intensa=MATCH.anemia_intensa),
+        Fact(anorexia=MATCH.anorexia),
+        Fact(astenia=MATCH.astenia),
+        Fact(aum_baco=MATCH.aum_baco),
         NOT(Fact(doenca=MATCH.doenca)),
         salience=-999
     )
@@ -628,11 +755,11 @@ class Greetings(KnowledgeEngine):
         febre,
         tontura,
         dor_olho,
-        perda_paladar_apetite,
+        perda_paladar,
         manchas_erupcoes,
         cansaco,
         dor_corpo,
-        dor_osso_articulacao,
+        dor_osso,
         dor_abdominal,
         nausea_vomito,
         tosse,
@@ -650,18 +777,24 @@ class Greetings(KnowledgeEngine):
         dor_costas,
         dor_articulacao,
         mal_estar,
+        acumulo_liq,
+        anemia_intensa,
+        anorexia,
+        astenia,
+        aum_baco,
+
     ):
-        print("\nNão foi encontrado nenhuma doença que coincide exatamentecom os sintomas informados.")
+        print("\nNão foi encontrado nenhuma doença que coincide exatamente com os sintomas informados.")
         lis = [
             dor_de_cabeca,
             febre,
             tontura,
             dor_olho,
-            perda_paladar_apetite,
+            perda_paladar,
             manchas_erupcoes,
             cansaco,
             dor_corpo,
-            dor_osso_articulacao,
+            dor_osso,
             dor_abdominal,
             nausea_vomito,
             tosse,
@@ -679,6 +812,11 @@ class Greetings(KnowledgeEngine):
             dor_costas,
             dor_articulacao,
             mal_estar,
+            acumulo_liq,
+            anemia_intensa,
+            anorexia,
+            astenia,
+            aum_baco,
         ]
         max_count = 0
         max_disease = ""
