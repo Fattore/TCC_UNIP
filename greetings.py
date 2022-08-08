@@ -142,6 +142,18 @@ class Greetings(KnowledgeEngine):
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(aum_baco=W())), salience=60)
     def sintoma_30(self):
         self.declare(Fact(aum_baco=input("Aumento do baço: ")))
+    
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(aum_testiculo=W())), salience=59)
+    def sintoma_31(self):
+        self.declare(Fact(aum_testiculo=input("Aumento do volume do testículo: ")))
+    
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(aum_ganglios=W())), salience=58)
+    def sintoma_32(self):
+        self.declare(Fact(aum_ganglios=input("Aumento dos gânglios linfáticos: ")))
+   
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(cefaleia=W())), salience=57)
+    def sintoma_33(self):
+        self.declare(Fact(cefaleia=input("Cefaleia: ")))
 
     
     @Rule(
@@ -177,6 +189,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_0(self):
         self.declare(Fact(doenca="Dengue"))
@@ -214,6 +229,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
 
     )
     def doenca_1(self):
@@ -253,6 +271,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
  
     )
     def doenca_2(self):
@@ -291,6 +312,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_3(self):
         self.declare(Fact(doenca="Febre de Chikungunya"))
@@ -328,6 +352,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="sim"),
+        Fact(aum_ganglios="sim"),
+        Fact(cefaleia="nao"),
     )
     def doenca_4(self):
         self.declare(Fact(doenca="Filariose"))
@@ -365,6 +392,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_5(self):
         self.declare(Fact(doenca="Hanseniase"))
@@ -402,6 +432,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_6(self):
         self.declare(Fact(doenca="Hepatite A"))
@@ -439,6 +472,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_7(self):
         self.declare(Fact(doenca="Hepatite B"))
@@ -476,6 +512,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_8(self):
         self.declare(Fact(doenca="Hepatite C"))
@@ -513,6 +552,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_9(self):
         self.declare(Fact(doenca="Hepatite D"))
@@ -550,6 +592,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_10(self):
         self.declare(Fact(doenca="Influenza"))
@@ -587,6 +632,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="sim"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_11(self):
         self.declare(Fact(doenca="Leishmanioses"))
@@ -624,6 +672,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="sim"),
         Fact(astenia="sim"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="sim"),
     )
     def doenca_12(self):
         self.declare(Fact(doenca="Malaria"))
@@ -661,6 +712,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_13(self):
         self.declare(Fact(doenca="Tuberculose"))
@@ -698,6 +752,9 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia="nao"),
         Fact(astenia="nao"),
         Fact(aum_baco="nao"),
+        Fact(aum_testiculo="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
     )
     def doenca_14(self):
         self.declare(Fact(doenca="Zika Virus"))
@@ -745,6 +802,10 @@ class Greetings(KnowledgeEngine):
         Fact(anorexia=MATCH.anorexia),
         Fact(astenia=MATCH.astenia),
         Fact(aum_baco=MATCH.aum_baco),
+        Fact(aum_testiculo=MATCH.aum_testiculo),
+        Fact(aum_ganglios=MATCH.aum_ganglios),
+        Fact(cefaleia=MATCH.cefaleia),
+
         NOT(Fact(doenca=MATCH.doenca)),
         salience=-999
     )
@@ -782,6 +843,10 @@ class Greetings(KnowledgeEngine):
         anorexia,
         astenia,
         aum_baco,
+        aum_testiculo,
+        aum_ganglios,
+        cefaleia,
+
 
     ):
         print("\nNão foi encontrado nenhuma doença que coincide exatamente com os sintomas informados.")
@@ -817,6 +882,9 @@ class Greetings(KnowledgeEngine):
             anorexia,
             astenia,
             aum_baco,
+            aum_testiculo,
+            aum_ganglios,
+            cefaleia,
         ]
         max_count = 0
         max_disease = ""

@@ -29,3 +29,6 @@ sim
 sim
 sim
 nao
+nao
+nao
+sim
