@@ -155,6 +155,25 @@ class Greetings(KnowledgeEngine):
     def sintoma_33(self):
         self.declare(Fact(cefaleia=input("Cefaleia: ")))
 
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(coceira=W())), salience=56)
+    def sintoma_34(self):
+        self.declare(Fact(coceira=input("Coceira: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(comp_nervos=W())), salience=55)
+    def sintoma_35(self):
+        self.declare(Fact(comp_nervos=input("Comprometimento do(s) nervo(s) periférico(s): ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(constipacao=W())), salience=54)
+    def sintoma_36(self):
+        self.declare(Fact(constipacao=input("Constipação: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(convulsao=W())), salience=53)
+    def sintoma_37(self):
+        self.declare(Fact(convulsao=input("Convulsão: ")))
+    
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dim_pelo_suor=W())), salience=52)
+    def sintoma_38(self):
+        self.declare(Fact(dim_pelo_suor=input("Diminuição de pelo e/ou suor: ")))
     
     @Rule(
         Fact(action="procurar_doenca"),
@@ -192,6 +211,13 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_0(self):
         self.declare(Fact(doenca="Dengue"))
@@ -232,6 +258,13 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(aum_ganglios="nao"),
+        Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
 
     )
     def doenca_1(self):
@@ -274,6 +307,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
  
     )
     def doenca_2(self):
@@ -315,6 +353,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_3(self):
         self.declare(Fact(doenca="Febre de Chikungunya"))
@@ -355,6 +398,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="sim"),
         Fact(aum_ganglios="sim"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_4(self):
         self.declare(Fact(doenca="Filariose"))
@@ -395,6 +443,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="sim"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="sim"),
     )
     def doenca_5(self):
         self.declare(Fact(doenca="Hanseniase"))
@@ -435,6 +488,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_6(self):
         self.declare(Fact(doenca="Hepatite A"))
@@ -475,6 +533,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="sim"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_7(self):
         self.declare(Fact(doenca="Hepatite B"))
@@ -515,6 +578,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_8(self):
         self.declare(Fact(doenca="Hepatite C"))
@@ -555,6 +623,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_9(self):
         self.declare(Fact(doenca="Hepatite D"))
@@ -595,6 +668,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_10(self):
         self.declare(Fact(doenca="Influenza"))
@@ -635,6 +713,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_11(self):
         self.declare(Fact(doenca="Leishmanioses"))
@@ -675,6 +758,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="sim"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="sim"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_12(self):
         self.declare(Fact(doenca="Malaria"))
@@ -715,6 +803,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="nao"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="nao"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_13(self):
         self.declare(Fact(doenca="Tuberculose"))
@@ -755,6 +848,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
+        Fact(coceira="sim"),
+        Fact(comp_nervos="nao"),
+        Fact(constipacao="sim"),
+        Fact(convulsao="nao"),
+        Fact(dim_pelo_suor="nao"),
     )
     def doenca_14(self):
         self.declare(Fact(doenca="Zika Virus"))
@@ -805,6 +903,11 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo=MATCH.aum_testiculo),
         Fact(aum_ganglios=MATCH.aum_ganglios),
         Fact(cefaleia=MATCH.cefaleia),
+        Fact(coceira=MATCH.coceira),
+        Fact(comp_nervos=MATCH.comp_nervos),
+        Fact(constipacao=MATCH.constipacao),
+        Fact(convulsao=MATCH.convulsao),
+        Fact(dim_pelo_suor=MATCH.dim_pelo_suor),
 
         NOT(Fact(doenca=MATCH.doenca)),
         salience=-999
@@ -846,7 +949,12 @@ class Greetings(KnowledgeEngine):
         aum_testiculo,
         aum_ganglios,
         cefaleia,
-
+        coceira,
+        comp_nervos,
+        constipacao,
+        convulsao,
+        dim_pelo_suor,
+        
 
     ):
         print("\nNão foi encontrado nenhuma doença que coincide exatamente com os sintomas informados.")
@@ -885,6 +993,11 @@ class Greetings(KnowledgeEngine):
             aum_testiculo,
             aum_ganglios,
             cefaleia,
+            coceira,
+            comp_nervos,
+            constipacao,
+            convulsao,
+            dim_pelo_suor,
         ]
         max_count = 0
         max_disease = ""

@@ -32,3 +32,8 @@ nao
 nao
 nao
 nao
+sim
+nao
+sim
+nao
+nao
