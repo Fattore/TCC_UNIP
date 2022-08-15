@@ -166,26 +166,9 @@ class Rules(KnowledgeEngine):
         Fact(tontura="sim"),
         Fact(dor_olho="nao"),
         Fact(perda_paladar_apetite="sim"),
-        Fact(manchas_erupcoes="nao"),
-        Fact(cansaco="nao"),
-        Fact(dor_corpo="nao"),
-        Fact(dor_osso_articulacao="nao"),
-        Fact(dor_abdominal="nao"),
-        Fact(nausea_vomito="nao"),
-        Fact(tosse="sim"),
         Fact(calafrio="sim"),
-        Fact(suores="sim"),
-        Fact(fraqueza="sim"),
+        Fact(tontura="sim"),
         Fact(diarreia="sim"),
-        Fact(coceira_anal="sim"),
-        Fact(palpitacao="sim"),
-        Fact(impotencia="sim"),
-        Fact(emagrecimento="sim"),
-        Fact(end_aum_figado="sim"),        
-        Fact(dor_moscular="sim"),
-        Fact(sens_plen_gastr="sim"),
-        Fact(dor_costas="nao"),
-        Fact(dor_articulacao="nao"),
         Fact(mal_estar="nao"),
     )
     def doenca_1(self):
@@ -232,10 +215,17 @@ class Rules(KnowledgeEngine):
     
     @Rule(
         Fact(action="procurar_doenca"),
+        Fact(dor_de_cabeca="nao"),
         Fact(febre="sim"),
+        Fact(tontura="nao"),
+        Fact(dor_olho="nao"),
+        Fact(perda_paladar_apetite="sim"),
+        Fact(manchas_erupcoes="nao"),
+        Fact(cansaco="nao"),
+        Fact(dor_corpo="nao"),
+        Fact(dor_osso_articulacao="nao"),
         Fact(dor_abdominal="sim"),
-        Fact(nausea_vomito="sim"),
-        Fact(perda_paladar_apetite="sim"),       
+        Fact(nausea_vomito="sim"),      
     )
     def doenca_6(self):
         self.declare(Fact(doenca="Hepatite A"))
