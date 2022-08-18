@@ -174,6 +174,44 @@ class Greetings(KnowledgeEngine):
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dim_pelo_suor=W())), salience=52)
     def sintoma_38(self):
         self.declare(Fact(dim_pelo_suor=input("Diminuição de pelo e/ou suor: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dim_sens_face=W())), salience=51)
+    def sintoma_39(self):
+        self.declare(Fact(dim_sens_face=input("Diminuição ou ausência da sensibilidade muscular na face: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(dispineia=W())), salience=50)
+    def sintoma_40(self):
+        self.declare(Fact(dispineia=input("Dispineia: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(enjoo=W())), salience=49)
+    def sintoma_41(self):
+        self.declare(Fact(enjoo=input("Enjoo: ")))
+    
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(est_confusional=W())), salience=48)
+    def sintoma_42(self):
+        self.declare(Fact(est_confusional=input("Estado confusional agudo: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(fadiga=W())), salience=47)
+    def sintoma_43(self):
+        self.declare(Fact(fadiga=input("Fadiga: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(fezes_claras=W())), salience=46)
+    def sintoma_44(self):
+        self.declare(Fact(fezes_claras=input("Fezes claras: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(fisgadas=W())), salience=45)
+    def sintoma_45(self):
+        self.declare(Fact(fisgadas=input("Fisgadas: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(formigamento=W())), salience=44)
+    def sintoma_46(self):
+        self.declare(Fact(formigamento=input("Formigamento: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(fotoboia=W())), salience=43)
+    def sintoma_47(self):
+        self.declare(Fact(fotoboia=input("Fotofobia: ")))
+
+
     
     @Rule(
         Fact(action="procurar_doenca"),
@@ -218,6 +256,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_0(self):
         self.declare(Fact(doenca="Dengue"))
@@ -265,6 +312,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
 
     )
     def doenca_1(self):
@@ -312,6 +368,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
  
     )
     def doenca_2(self):
@@ -358,6 +423,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_3(self):
         self.declare(Fact(doenca="Febre de Chikungunya"))
@@ -403,6 +477,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_4(self):
         self.declare(Fact(doenca="Filariose"))
@@ -448,6 +531,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="sim"),
+        Fact(dim_sens_face="sim"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="sim"),
+        Fact(formigamento="sim"),
+        Fact(fotoboia="nao"),
     )
     def doenca_5(self):
         self.declare(Fact(doenca="Hanseniase"))
@@ -493,6 +585,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_6(self):
         self.declare(Fact(doenca="Hepatite A"))
@@ -538,6 +639,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="sim"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_7(self):
         self.declare(Fact(doenca="Hepatite B"))
@@ -583,6 +693,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_8(self):
         self.declare(Fact(doenca="Hepatite C"))
@@ -628,6 +747,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="sim"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="sim"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_9(self):
         self.declare(Fact(doenca="Hepatite D"))
@@ -673,6 +801,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_10(self):
         self.declare(Fact(doenca="Influenza"))
@@ -718,6 +855,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_11(self):
         self.declare(Fact(doenca="Leishmanioses"))
@@ -763,6 +909,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="sim"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="sim"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="sim"),
+        Fact(fadiga="sim"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_12(self):
         self.declare(Fact(doenca="Malaria"))
@@ -808,6 +963,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="nao"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="nao"),
     )
     def doenca_13(self):
         self.declare(Fact(doenca="Tuberculose"))
@@ -853,6 +1017,15 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao="sim"),
         Fact(convulsao="nao"),
         Fact(dim_pelo_suor="nao"),
+        Fact(dim_sens_face="nao"),
+        Fact(dispineia="nao"),
+        Fact(enjoo="nao"),
+        Fact(est_confusional="nao"),
+        Fact(fadiga="nao"),
+        Fact(fezes_claras="nao"),
+        Fact(fisgadas="nao"),
+        Fact(formigamento="nao"),
+        Fact(fotoboia="sim"),
     )
     def doenca_14(self):
         self.declare(Fact(doenca="Zika Virus"))
@@ -908,6 +1081,16 @@ class Greetings(KnowledgeEngine):
         Fact(constipacao=MATCH.constipacao),
         Fact(convulsao=MATCH.convulsao),
         Fact(dim_pelo_suor=MATCH.dim_pelo_suor),
+        Fact(dim_sens_face=MATCH.dim_sens_face),
+        Fact(dispineia=MATCH.dispineia),
+        Fact(enjoo=MATCH.enjoo),
+        Fact(est_confusional=MATCH.est_confusional),
+        Fact(fadiga=MATCH.fadiga),
+        Fact(fezes_claras=MATCH.fezes_claras),
+        Fact(fisgadas=MATCH.fisgadas),
+        Fact(formigamento=MATCH.formigamento),
+        Fact(fotoboia=MATCH.fotoboia),
+
 
         NOT(Fact(doenca=MATCH.doenca)),
         salience=-999
@@ -954,6 +1137,15 @@ class Greetings(KnowledgeEngine):
         constipacao,
         convulsao,
         dim_pelo_suor,
+        dim_sens_face,
+        dispineia,
+        enjoo,
+        est_confusional,
+        fadiga,
+        fezes_claras,
+        fisgadas,
+        formigamento,
+        fotoboia,
         
 
     ):
@@ -998,6 +1190,17 @@ class Greetings(KnowledgeEngine):
             constipacao,
             convulsao,
             dim_pelo_suor,
+            dim_sens_face,
+            dispineia,
+            enjoo,
+            est_confusional,
+            fadiga,
+            fezes_claras,
+            fisgadas,
+            formigamento,
+            fotoboia,
+
+
         ]
         max_count = 0
         max_disease = ""
