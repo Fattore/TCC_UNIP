@@ -37,7 +37,7 @@ class Greetings(KnowledgeEngine):
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_paladar=W())), salience=86)
     def sintoma_4(self):
-        self.declare(Fact(perda_paladar=input("perda no paladar e no apetite: ")))
+        self.declare(Fact(perda_paladar=input("perda no paladar: ")))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(manchas_erupcoes=W())), salience=85)
     def sintoma_5(self):
@@ -211,8 +211,87 @@ class Greetings(KnowledgeEngine):
     def sintoma_47(self):
         self.declare(Fact(fotoboia=input("Fotofobia: ")))
 
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(hiperparasitemia=W())), salience=42)
+    def sintoma_48(self):
+        self.declare(Fact(hiperparasitemia=input("Hiperparasitemia: ")))
 
-    
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(hipotensao_arterial=W())), salience=41)
+    def sintoma_49(self):
+        self.declare(Fact(hipotensao_arterial=input("Hipotensão arterial: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(ictericia=W())), salience=40)
+    def sintoma_50(self):
+        self.declare(Fact(ictericia=input("Ictericia: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(infl_garganta=W())), salience=39)
+    def sintoma_51(self):
+        self.declare(Fact(infl_garganta=input("Inflamação da garganta: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(irritacao_olhos=W())), salience=38)
+    def sintoma_52(self):
+        self.declare(Fact(irritacao_olhos=input("Irritação nos olhos: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(moleza=W())), salience=37)
+    def sintoma_53(self):
+        self.declare(Fact(moleza=input("Moleza: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(mucosas_amarelas=W())), salience=36)
+    def sintoma_54(self):
+        self.declare(Fact(mucosas_amarelas=input("Mucosas amarelas: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(muito_cansaco=W())), salience=35)
+    def sintoma_55(self):
+        self.declare(Fact(muito_cansaco=input("Muito cansaço: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(nodulos_corpo=W())), salience=34)
+    def sintoma_56(self):
+        self.declare(Fact(nodulos_corpo=input("Nodulos no corpo: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(olhos_amarelados=W())), salience=33)
+    def sintoma_57(self):
+        self.declare(Fact(olhos_amarelados=input("Olhos amarelados: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(oliguria=W())), salience=32)
+    def sintoma_58(self):
+        self.declare(Fact(oliguria=input("Oligúria (insuficiência renal aguda): ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(pele_amarelada=W())), salience=31)
+    def sintoma_59(self):
+        self.declare(Fact(pele_amarelada=input("Pele amarelada: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_apetite=W())), salience=30)
+    def sintoma_60(self):
+        self.declare(Fact(perda_apetite=input("Perda de apetite: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_peso=W())), salience=29)
+    def sintoma_61(self):
+        self.declare(Fact(perda_peso=input("Perda de peso: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(rash_cutanea=W())), salience=28)
+    def sintoma_62(self):
+        self.declare(Fact(rash_cutanea=input("Rash Cutânea: ")))
+     
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(sudorese_noturna=W())), salience=27)
+    def sintoma_63(self):
+        self.declare(Fact(sudorese_noturna=input("Sudorese noturna: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(sudorese_profusa=W())), salience=26)
+    def sintoma_64(self):
+        self.declare(Fact(sudorese_profusa=input("Sudorese profusa: ")))
+ 
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(tremor=W())), salience=25)
+    def sintoma_65(self):
+        self.declare(Fact(tremor=input("Tremor: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(ulceras=W())), salience=24)
+    def sintoma_66(self):
+        self.declare(Fact(ulceras=input("Úlceras: ")))
+
+    @Rule(Fact(action="procurar_doenca"), NOT(Fact(urina_escura=W())), salience=23)
+    def sintoma_67(self):
+        self.declare(Fact(urina_escura=input("Urina escura: ")))
+
+
     @Rule(
         Fact(action="procurar_doenca"),
         Fact(dor_de_cabeca="sim"),
@@ -249,8 +328,6 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
-        Fact(aum_ganglios="nao"),
-        Fact(cefaleia="nao"),
         Fact(coceira="nao"),
         Fact(comp_nervos="nao"),
         Fact(constipacao="nao"),
@@ -265,6 +342,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="sim"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="sim"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
     )
     def doenca_0(self):
         self.declare(Fact(doenca="Dengue"))
@@ -305,8 +402,6 @@ class Greetings(KnowledgeEngine):
         Fact(aum_testiculo="nao"),
         Fact(aum_ganglios="nao"),
         Fact(cefaleia="nao"),
-        Fact(aum_ganglios="nao"),
-        Fact(cefaleia="nao"),
         Fact(coceira="nao"),
         Fact(comp_nervos="nao"),
         Fact(constipacao="nao"),
@@ -321,6 +416,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="sim"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
 
     )
     def doenca_1(self):
@@ -377,6 +492,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
  
     )
     def doenca_2(self):
@@ -432,6 +567,27 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
+
     )
     def doenca_3(self):
         self.declare(Fact(doenca="Febre de Chikungunya"))
@@ -486,6 +642,28 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
+
+
     )
     def doenca_4(self):
         self.declare(Fact(doenca="Filariose"))
@@ -540,6 +718,27 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="sim"),
         Fact(formigamento="sim"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="sim"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
+
     )
     def doenca_5(self):
         self.declare(Fact(doenca="Hanseniase"))
@@ -594,6 +793,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="sim"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="sim"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="sim"),
     )
     def doenca_6(self):
         self.declare(Fact(doenca="Hepatite A"))
@@ -648,6 +867,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="sim"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="sim"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="sim"),
     )
     def doenca_7(self):
         self.declare(Fact(doenca="Hepatite B"))
@@ -702,6 +941,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="sim"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="sim"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="sim"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
     )
     def doenca_8(self):
         self.declare(Fact(doenca="Hepatite C"))
@@ -756,6 +1015,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="sim"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="sim"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="sim"),
     )
     def doenca_9(self):
         self.declare(Fact(doenca="Hepatite D"))
@@ -810,6 +1089,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="sim"),
+        Fact(irritacao_olhos="sim"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="sim"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
     )
     def doenca_10(self):
         self.declare(Fact(doenca="Influenza"))
@@ -864,6 +1163,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="sim"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
     )
     def doenca_11(self):
         self.declare(Fact(doenca="Leishmanioses"))
@@ -918,6 +1237,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="sim"),
+        Fact(hipotensao_arterial="sim"),
+        Fact(ictericia="sim"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="sim"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="sim"),
+        Fact(tremor="sim"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
     )
     def doenca_12(self):
         self.declare(Fact(doenca="Malaria"))
@@ -972,6 +1311,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="nao"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="sim"),
+        Fact(rash_cutanea="nao"),
+        Fact(sudorese_noturna="sim"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="nao"),
+        Fact(urina_escura="nao"),
     )
     def doenca_13(self):
         self.declare(Fact(doenca="Tuberculose"))
@@ -1026,6 +1385,26 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas="nao"),
         Fact(formigamento="nao"),
         Fact(fotoboia="sim"),
+        Fact(hiperparasitemia="nao"),
+        Fact(hipotensao_arterial="nao"),
+        Fact(ictericia="nao"),
+        Fact(infl_garganta="nao"),
+        Fact(irritacao_olhos="nao"),
+        Fact(moleza="nao"),
+        Fact(mucosas_amarelas="nao"),
+        Fact(muito_cansaco="nao"),
+        Fact(nodulos_corpo="nao"),
+        Fact(olhos_amarelados="nao"),
+        Fact(oliguria="nao"),
+        Fact(pele_amarelada="nao"),
+        Fact(perda_apetite="nao"),
+        Fact(perda_peso="nao"),
+        Fact(rash_cutanea="sim"),
+        Fact(sudorese_noturna="nao"),
+        Fact(sudorese_profusa="nao"),
+        Fact(tremor="nao"),
+        Fact(ulceras="sim"),
+        Fact(urina_escura="nao"),
     )
     def doenca_14(self):
         self.declare(Fact(doenca="Zika Virus"))
@@ -1090,6 +1469,27 @@ class Greetings(KnowledgeEngine):
         Fact(fisgadas=MATCH.fisgadas),
         Fact(formigamento=MATCH.formigamento),
         Fact(fotoboia=MATCH.fotoboia),
+        Fact(hiperparasitemia=MATCH.hiperparasitemia),
+        Fact(hipotensao_arterial=MATCH.hipotensao_arterial),
+        Fact(ictericia=MATCH.ictericia),
+        Fact(infl_garganta=MATCH.infl_garganta),
+        Fact(irritacao_olhos=MATCH.irritacao_olhos),
+        Fact(moleza=MATCH.moleza),
+        Fact(mucosas_amarelas=MATCH.mucosas_amarelas),
+        Fact(muito_cansaco=MATCH.muito_cansaco),
+        Fact(nodulos_corpo=MATCH.nodulos_corpo),
+        Fact(olhos_amarelados=MATCH.olhos_amarelados),
+        Fact(oliguria=MATCH.oliguria),
+        Fact(pele_amarelada=MATCH.pele_amarelada),
+        Fact(perda_apetite=MATCH.perda_apetite),
+        Fact(perda_peso=MATCH.perda_peso),
+        Fact(rash_cutanea=MATCH.rash_cutanea),
+        Fact(sudorese_noturna=MATCH.sudorese_noturna),
+        Fact(sudorese_profusa=MATCH.sudorese_profusa),
+        Fact(tremor=MATCH.tremor),
+        Fact(ulceras=MATCH.ulceras),
+        Fact(urina_escura=MATCH.urina_escura),
+
 
 
         NOT(Fact(doenca=MATCH.doenca)),
@@ -1146,6 +1546,26 @@ class Greetings(KnowledgeEngine):
         fisgadas,
         formigamento,
         fotoboia,
+        hiperparasitemia,
+        hipotensao_arterial,
+        ictericia,
+        infl_garganta,
+        irritacao_olhos,
+        moleza,
+        mucosas_amarelas,
+        muito_cansaco,   
+        nodulos_corpo,
+        olhos_amarelados,
+        oliguria, 
+        pele_amarelada,
+        perda_apetite,
+        perda_peso,
+        rash_cutanea,
+        sudorese_noturna,
+        sudorese_profusa,
+        tremor,
+        ulceras,
+        urina_escura,
         
 
     ):
@@ -1199,6 +1619,28 @@ class Greetings(KnowledgeEngine):
             fisgadas,
             formigamento,
             fotoboia,
+            hiperparasitemia,
+            hipotensao_arterial,
+            ictericia,
+            infl_garganta,
+            irritacao_olhos,
+            moleza,
+            mucosas_amarelas,
+            muito_cansaco,   
+            nodulos_corpo,
+            olhos_amarelados,
+            oliguria, 
+            pele_amarelada,
+            perda_apetite,
+            perda_peso,
+            rash_cutanea,
+            sudorese_noturna,
+            sudorese_profusa,
+            tremor,
+            ulceras,
+            urina_escura,
+        
+
 
 
         ]
