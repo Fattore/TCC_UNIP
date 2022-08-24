@@ -1489,9 +1489,6 @@ class Greetings(KnowledgeEngine):
         Fact(tremor=MATCH.tremor),
         Fact(ulceras=MATCH.ulceras),
         Fact(urina_escura=MATCH.urina_escura),
-
-
-
         NOT(Fact(doenca=MATCH.doenca)),
         salience=-999
     )
@@ -1567,9 +1564,10 @@ class Greetings(KnowledgeEngine):
         ulceras,
         urina_escura,
         
-
     ):
         print("\nNão foi encontrado nenhuma doença que coincide exatamente com os sintomas informados.")
+
+
         lis = [
             dor_de_cabeca,
             febre,
@@ -1639,21 +1637,39 @@ class Greetings(KnowledgeEngine):
             tremor,
             ulceras,
             urina_escura,
-        
-
-
-
         ]
+
+
         max_count = 0
+        mid_count = 0
+        min_count = 0
         max_disease = ""
+        mid_disease = ""
+        min_disease = ""
         for key, val in self.doencas_map.items():
             count = 0
             temp_list = eval(key)
             for j in range(0, len(lis)):
                 if temp_list[j] == lis[j] and (lis[j] == "alta" or lis[j] == "baixa" or lis[j] == "sim" or lis[j] == "nao"):
                     count = count + 1
-            if count > max_count:
-                max_count = count
-                max_disease = val
+            if count > min_count:
+                if count > mid_count:
+                    if count > max_count:
+                        min_count = mid_count
+                        mid_count = max_count
+                        max_count = count
+                        min_disease = mid_disease
+                        mid_disease = max_disease
+                        max_disease = val
+                    else:
+                        min_count = mid_count
+                        mid_count = count 
+                        min_disease = mid_disease
+                        mid_disease = val
+
+                else:
+                    min_count = count
+                    min_disease = val
+
         if max_disease != "":
-            self.nao_encontrado(max_disease)
+            self.nao_encontrado(max_disease, max_count, mid_disease, mid_count, min_disease, min_count)

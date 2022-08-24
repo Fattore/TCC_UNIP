@@ -28,11 +28,27 @@ def identificar_doenca(*arguments):
     return doencas_map[str(sintoma_list)]
 
 
-def nao_encontrado(doenca):
+def nao_encontrado(max_disease, max_count, mid_disease, mid_count, min_disease, min_count):
     print("")
-    id_disease = doenca
+    id_disease = max_disease
     print("")
     print("A doença mais provavel é %s\n" % (id_disease))
+    print("%s sintomas foram compativeis.\n" % (max_count))
+    print("")
+    print("")
+
+    if mid_count != "":
+        print("A segunda doença mais provavel é %s\n" % (mid_disease))
+        print("%s sintomas foram compativeis.\n" % (mid_count))
+        print("")
+        print("")
+
+        if min_count != "":
+            print("A terceira doença mais provavel é %s\n" % (min_disease))
+            print("%s sintomas foram compativeis.\n" % (min_count))
+            print("")
+            print("")
+
 
 
 # driver function
