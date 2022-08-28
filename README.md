@@ -19,11 +19,12 @@ Para instalar o <SADM>, siga estas etapas:
 Clonando o repositório:
 ```
 git clone https://github.com/Fattore/TCC_UNIP.git
-
+```
+```
 cd YOUR-REPO-NAME
+```
 
-code .
-
+```
 npm install && npm start
 ```
 
@@ -38,8 +39,6 @@ Pelo o que eu me lembro estamos usando no <SADM> as seguintes coisas:
 -Electron (Framework)
 ```
 
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
-
 ## 🤝 Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
@@ -48,7 +47,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="https://github.com/ggggabriell">
-        <img src="[https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg](https://avatars.githubusercontent.com/u/56162447?v=4)" width="100px;" alt="Foto do Gabriel"/><br>
+        <img src="https://avatars.githubusercontent.com/u/56162447?v=4" width="100px;" alt="Foto do Gabriel"/><br>
         <sub>
           <b>Gabriel Farias</b>
         </sub>
@@ -56,7 +55,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/guihol">
-        <img src="[https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg](https://avatars.githubusercontent.com/u/56092483?v=4)" width="100px;" alt="Foto do Guilherme"/><br>
+        <img src="https://avatars.githubusercontent.com/u/56092483?v=4" width="100px;" alt="Foto do Guilherme"/><br>
         <sub>
           <b>Guilherme Henrique</b>
         </sub>
