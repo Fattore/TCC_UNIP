@@ -1,0 +1,95 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.about {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.styleVF-background {
+	background: linear-gradient(to bottom, #003399 0%, #66ccff 100%);
+}
+
+.styleVF-container {
+	background: #e1f3ff;
+}
+
+.styleVF-formoutline {
+	margin-right: -100%; margin-top: 1%;
+}
+
+.styleVF-table-search {
+	width: -webkit-fill-available; margin-bottom: 5%; margin-left: -13%;
+}
+
+.style-largefont {
+	font-size: larger;
+}
+
+.style-marginfive {
+	margin: 5%
+}
+
+.style-marginbottom {
+	margin-bottom: 5%
+}
+
+.style-paddingtop {
+	padding-top: 5%
+}
+
+.style-paddingtoptres {
+	padding-top: 3%
+}
+
+.card-header .fa {
+	transition: .3s transform ease-in-out;
+}
+
+.card-header .collapsed .fa {
+	transform: rotate(90deg);
+}
+
+.style-card {
+	padding-top: 2%; width: 100%
+}
+
+.style-threeall {
+	margin-bottom: 3%; margin-top: 3%;
+}
+
+.style-index {
+	width: 100%; padding: 15.3%;
+}
+
+.style-indexmargin {
+	margin-bottom: 10px;
+}
+
+.style-fiquegrande {
+	width: 100% !important;
+}
