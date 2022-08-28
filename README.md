@@ -48,7 +48,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="https://github.com/ggggabriell">
-        <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+        <img src="[https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg](https://avatars.githubusercontent.com/u/56162447?v=4)" width="100px;" alt="Foto do Gabriel"/><br>
         <sub>
           <b>Gabriel Farias</b>
         </sub>
@@ -56,7 +56,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/guihol">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
+        <img src="[https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg](https://avatars.githubusercontent.com/u/56092483?v=4)" width="100px;" alt="Foto do Guilherme"/><br>
         <sub>
           <b>Guilherme Henrique</b>
         </sub>
@@ -65,5 +65,5 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   </tr>
 </table>
 
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+[⬆ Voltar ao topo](#SADM)<br>
 
