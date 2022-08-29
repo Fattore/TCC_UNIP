@@ -4790,6 +4790,19 @@
     "jsonfile" "^4.0.0"
     "universalify" "^0.1.0"
 
+"fs-jetpack@^4.3.1":
+  "integrity" "sha512-dbeOK84F6BiQzk2yqqCVwCPWTxAvVGJ3fMQc6E2wuEohS28mR6yHngbrKuVCK1KHRx/ccByDylqu4H5PCP2urQ=="
+  "resolved" "https://registry.npmjs.org/fs-jetpack/-/fs-jetpack-4.3.1.tgz"
+  "version" "4.3.1"
+  dependencies:
+    "minimatch" "^3.0.2"
+    "rimraf" "^2.6.3"
+
+"fs-react@^0.0.4":
+  "integrity" "sha512-F7Yy/gDd3ewTusPCnqwT2C/qGsC1aDHq4uekrEjeFQdDfztqenSP1gAVUFpju41Tvnh+D/pTLsNGkdRP5teY7g=="
+  "resolved" "https://registry.npmjs.org/fs-react/-/fs-react-0.0.4.tgz"
+  "version" "0.0.4"
+
 "fs-write-stream-atomic@^1.0.8":
   "integrity" "sha1-tH31NJPvkR33VzHnCp3tAYnbQMk="
   "resolved" "https://registry.npmjs.org/fs-write-stream-atomic/-/fs-write-stream-atomic-1.0.10.tgz"
@@ -6962,7 +6975,7 @@
   "resolved" "https://registry.npmjs.org/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz"
   "version" "1.0.1"
 
-"minimatch@^3.0.4", "minimatch@3.0.4":
+"minimatch@^3.0.2", "minimatch@^3.0.4", "minimatch@3.0.4":
   "integrity" "sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA=="
   "resolved" "https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz"
   "version" "3.0.4"
