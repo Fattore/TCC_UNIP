@@ -3,16 +3,8 @@ import { Link } from "react-router-dom"
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyComp from "../script/component";
-import jetpack from "fs-jetpack";
 
 const Avaliacao = () => {
-
-	const writeFile = () => {
-		const obj = { greet: "Hello World!" };
-		
-		try { jetpack.write('D:/Faculdades/TCC_UNIP/src/assets/respostas.text', obj); }
-		catch(e) { alert(e); }
-	}
 
     return (
         <div class="">
@@ -29,45 +21,47 @@ const Avaliacao = () => {
 							<div class="col-6">
 								<MyComp
 									entries={[
-										{ name: 'Dor de Cabeça', id: 'chkdordecabeca', value: false },
-										{ name: 'Febre', id: 'chkfebre', value: false },
-										{ name: 'Tontura', id: 'chktontura', value: false },
-										{ name: 'Dor no Olho', id: 'chkdorolho', value: false },
-										{ name: 'Perda no Paladar e no Apetite', id: 'chkperdapaladarapetite', value: false },
-										{ name: 'Manchas e Erupçoes na Pele', id: 'chkmanchaserupcoes', value: false },
-										{ name: 'Cansaço', id: 'chkcansaco', value: false },
-										{ name: 'Dor no Corpo', id: 'chkdornocorpo', value: false },
-										{ name: 'Dor nos Ossos e nas Articulações', id: 'chkdorossoarticulacoes', value: false },
-										{ name: 'Dor Abdominal', id: 'chkdorabdominal', value: false },
-										{ name: 'Nausea e Vomito', id: 'chknausevomito', value: false },
-										{ name: 'Tosse', id: 'chktosse', value: false },
-										{ name: 'Calafrio', id: 'chkcalafrio', value: false }
+										{ name: 'Dor de Cabeça', id: 'chkdordecabeca', value: 'nao'},
+										{ name: 'Febre', id: 'chkfebre', value: 'nao' },
+										{ name: 'Tontura', id: 'chktontura', value: 'nao' },
+										{ name: 'Dor no Olho', id: 'chkdorolho', value: 'nao' },
+										{ name: 'Perda no Paladar e no Apetite', id: 'chkperdapaladarapetite', value: 'nao' },
+										{ name: 'Manchas e Erupçoes na Pele', id: 'chkmanchaserupcoes', value: 'nao' },
+										{ name: 'Cansaço', id: 'chkcansaco', value: 'nao' },
+										{ name: 'Dor no Corpo', id: 'chkdornocorpo', value: 'nao' },
+										{ name: 'Dor nos Ossos e nas Articulações', id: 'chkdorossoarticulacoes', value: 'nao' },
+										{ name: 'Dor Abdominal', id: 'chkdorabdominal', value: 'nao' },
+										{ name: 'Nausea e Vomito', id: 'chknausevomito', value: 'nao' },
+										{ name: 'Tosse', id: 'chktosse', value: 'nao' },
+										{ name: 'Calafrio', id: 'chkcalafrio', value: 'nao' }
 									]}
 								/>
 							</div>
 							<div class="col-6">
 								<MyComp
 									entries={[
-										{ name: 'Suores', id: 'chksuores', value: false },
-										{ name: 'Fraqueza', id: 'chkfraqueza', value: false },
-										{ name: 'Diarreia', id: 'chkdiarreia', value: false },
-										{ name: 'Coceira Anal', id: 'chkcoceiranal', value: false },
-										{ name: 'Impotencia', id: 'chkimpotencia', value: false },
-										{ name: 'Palpitação', id: 'chkpalpitacao', value: false },
-										{ name: 'Emagrecimento', id: 'chkemagrecimento', value: false },
-										{ name: 'Endurecimento ou Aumento do Figado', id: 'chkendurecimentofigado', value: false },
-										{ name: 'Dor Muscular', id: 'chkdormuscular', value: false },
-										{ name: 'Sensação de Plenitude Gastrica', id: 'chksensacaogastrica', value: false },
-										{ name: 'Dores nas Costas', id: 'chkdorcosta', value: false },
-										{ name: 'Dor Articulacao', id: 'chkdorarticulacao', value: false },
-										{ name: 'Mal Estar', id: 'chkmalestar', value: false }
+										{ name: 'Suores', id: 'chksuores', value: 'nao' },
+										{ name: 'Fraqueza', id: 'chkfraqueza', value: 'nao' },
+										{ name: 'Diarreia', id: 'chkdiarreia', value: 'nao' },
+										{ name: 'Coceira Anal', id: 'chkcoceiranal', value: 'nao' },
+										{ name: 'Impotencia', id: 'chkimpotencia', value: 'nao' },
+										{ name: 'Palpitação', id: 'chkpalpitacao', value: 'nao' },
+										{ name: 'Emagrecimento', id: 'chkemagrecimento', value: 'nao' },
+										{ name: 'Endurecimento ou Aumento do Figado', id: 'chkendurecimentofigado', value: 'nao' },
+										{ name: 'Dor Muscular', id: 'chkdormuscular', value: 'nao' },
+										{ name: 'Sensação de Plenitude Gastrica', id: 'chksensacaogastrica', value: 'nao' },
+										{ name: 'Dores nas Costas', id: 'chkdorcosta', value: 'nao' },
+										{ name: 'Dor Articulacao', id: 'chkdorarticulacao', value: 'nao' },
+										{ name: 'Mal Estar', id: 'chkmalestar', value: 'nao' }
 									]}
-									/>
+								/>
 							</div>
 						</div>		
 					</div>
-					
-					<button class="btn btn-primary style-fiquegrande" id="teste" onClick={writeFile}>teste</button>
+
+					<div class="d-grid gap-2 style-marginbottom">
+						<button class="btn btn-primary style-fiquegrande" id="teste">teste</button>
+					</div>
 
 					<div class="d-grid gap-2 style-marginbottom">
 						<Link to="/Relatorio">
@@ -84,6 +78,7 @@ const Avaliacao = () => {
 			</div>
         </div>
     );
+
 }
 
 export default Avaliacao

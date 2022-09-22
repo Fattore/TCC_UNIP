@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../pages/avaliacao.js';
 
 const MyComp = ({ entries }) => {
 	const [check, setCheck] = useState({});
@@ -12,6 +13,10 @@ const MyComp = ({ entries }) => {
 		setCheck({ ...checks });
 	  };
 	}
+
+	const listaResposta = entries.map((entry) => 
+		<p key={entry.id}>{entry.name} - {entry.value}</p>
+	)
 
 	return (
 	  <div class="form-check">
@@ -26,8 +31,10 @@ const MyComp = ({ entries }) => {
 			  	type="checkbox"
 			/>
 			<label class="form-check-label">{entry.name}</label>
+			<br/>
 		  </>
 		))}
+		{listaResposta}
 	  </div>
 	);
 }
