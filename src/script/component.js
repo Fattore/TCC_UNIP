@@ -36,7 +36,7 @@ const MyComp = ({ entries }) => {
 		))}
 		{listaResposta}
 	  </div>
-	);
+	)
 }
 
 export default MyComp
