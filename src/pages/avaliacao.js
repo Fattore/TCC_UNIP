@@ -3,11 +3,18 @@ import { Link } from "react-router-dom"
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyComp from "../script/component";
+const electron = window.require('electron');
+const ipcRenderer  = electron.ipcRenderer;
+// window.ipcRenderer = require('electron').ipcRenderer;
+
+function shareData(){
+	ipcRenderer.send("msg", [onSubmit])
+}
 
 const Avaliacao = () => {
 
     return (
-        <div class="">
+        <div>
             <div class="container styleVF-container">
 				<div class="position-absolute top-0 start-50 translate-middle style-paddingtop">
 					<h4>DIAGNÓSTICO</h4>
@@ -56,6 +63,7 @@ const Avaliacao = () => {
 										{ name: 'Aumento Gânglios Linfáticos', id: 'chkaumganglioslinfaticos', value: 'nao' },
 										{ name: 'Cefalia', id: 'chkcefalia', value: 'nao' }
 									]}
+									onSubmit
 								/>
 							</div>
 							<div class="col-6">
@@ -96,13 +104,10 @@ const Avaliacao = () => {
 										{ name: 'Úlceras', id: 'chkulceras', value: 'nao' },
 										{ name: 'Urina escura', id: 'chkurinaescura', value: 'nao' }
 									]}
+									onSubmit
 								/>
 							</div>
 						</div>		
-					</div>
-
-					<div class="d-grid gap-2 style-marginbottom">
-						<button class="btn btn-primary style-fiquegrande" id="teste">teste</button>
 					</div>
 
 					<div class="d-grid gap-2 style-marginbottom">

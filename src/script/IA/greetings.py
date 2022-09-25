@@ -1,10 +1,16 @@
 from experta import *
+import eventlet
+import socketio
+
 
 class Greetings(KnowledgeEngine):
 
-    def __init__(self, doencas_map, nao_encontrado):
+    def __init__(self, doencas_map, nao_encontrado, dados_usuario, sendData, sendDataNotMatched):
         self.doencas_map = doencas_map
         self.nao_encontrado = nao_encontrado
+        self.dados_usuario = dados_usuario.split(",")
+        self.sendData = sendData
+        self.sendDataNotMatched = sendDataNotMatched
         KnowledgeEngine.__init__(self)
 
     # code giving instructions on how to use the Expert System
@@ -16,7 +22,9 @@ class Greetings(KnowledgeEngine):
         print("Você está sentindo algum desses sintomas?")
         print("Responda sim ou não")
         print("")
+        print(self.dados_usuario[0])
         yield Fact(action="procurar_doenca")
+    
 
     # perguntar ao usuario
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_de_cabeca=W())), salience=90)
@@ -436,7 +444,6 @@ class Greetings(KnowledgeEngine):
         Fact(tremor="nao"),
         Fact(ulceras="nao"),
         Fact(urina_escura="nao"),
-
     )
     def doenca_1(self):
         self.declare(Fact(doenca="Esquistossomose"))
@@ -587,7 +594,6 @@ class Greetings(KnowledgeEngine):
         Fact(tremor="nao"),
         Fact(ulceras="nao"),
         Fact(urina_escura="nao"),
-
     )
     def doenca_3(self):
         self.declare(Fact(doenca="Febre de Chikungunya"))
@@ -662,8 +668,6 @@ class Greetings(KnowledgeEngine):
         Fact(tremor="nao"),
         Fact(ulceras="nao"),
         Fact(urina_escura="nao"),
-
-
     )
     def doenca_4(self):
         self.declare(Fact(doenca="Filariose"))
@@ -738,7 +742,6 @@ class Greetings(KnowledgeEngine):
         Fact(tremor="nao"),
         Fact(ulceras="nao"),
         Fact(urina_escura="nao"),
-
     )
     def doenca_5(self):
         self.declare(Fact(doenca="Hanseniase"))
@@ -1409,8 +1412,11 @@ class Greetings(KnowledgeEngine):
     def doenca_14(self):
         self.declare(Fact(doenca="Zika Virus"))
 
+   
+
+
     # when the user's input doesn't match any disease in the knowledge base
-    @Rule(Fact(action="procurar_doenca"), Fact(doenca=MATCH.doenca), salience=-998)
+    @Rule(Fact(action="procurar_doenca"), Fact(doenca=MATCH.doenca), salience=-997)
     def doenca(self, doenca):
         print("")
         id_disease = doenca
@@ -1418,7 +1424,9 @@ class Greetings(KnowledgeEngine):
         print("Os sintomas coincidem com %s\n" % (id_disease))
         print("")
         print("")
+        self.sendData(id_disease)
         
+
     @Rule(
         Fact(action="procurar_doenca"),
         Fact(dor_de_cabeca=MATCH.dor_de_cabeca),
@@ -1490,7 +1498,7 @@ class Greetings(KnowledgeEngine):
         Fact(ulceras=MATCH.ulceras),
         Fact(urina_escura=MATCH.urina_escura),
         NOT(Fact(doenca=MATCH.doenca)),
-        salience=-999
+        salience=-998
     )
 
     def not_matched(
@@ -1673,3 +1681,4 @@ class Greetings(KnowledgeEngine):
 
         if max_disease != "":
             self.nao_encontrado(max_disease, max_count, mid_disease, mid_count, min_disease, min_count)
+            self.sendDataNotMatched(max_disease, max_count, mid_disease, mid_count, min_disease, min_count)

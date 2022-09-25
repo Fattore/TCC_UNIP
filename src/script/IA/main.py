@@ -52,16 +52,52 @@ def nao_encontrado(max_disease, max_count, mid_disease, mid_count, min_disease, 
             print("")
 
 
+def sendData(resultado_doenca):
+        sio = socketio.Server()
+        app = socketio.WSGIApp(sio)
+        @sio.event
+        def connect(sid, environ):
+            print('connect ', sid)
+
+        @sio.on('get-data-python')
+        def msg(sid, data):
+            print('message ', data)
+            return "OK", resultado_doenca
+
+        @sio.event
+        def disconnect(sid):
+            print('disconnect ', sid)
+
+        eventlet.wsgi.server(eventlet.listen(('', 5000)), app)
+
+def sendDataNotMatched(max_disease, max_count, mid_disease, mid_count, min_disease, min_count):
+        sio = socketio.Server()
+        app = socketio.WSGIApp(sio)
+        @sio.event
+        def connect(sid, environ):
+            print('connect ', sid)
+
+        @sio.on('get-data-python')
+        def msg(sid, data):
+            print('message ', data)
+            return "OK", max_disease
+
+        @sio.event
+        def disconnect(sid):
+            print('disconnect ', sid)
+
+        eventlet.wsgi.server(eventlet.listen(('', 5000)), app)
 
 # driver function
 if __name__ == "__main__":
     preprocess()
     # creating class object
-    engine = Greetings(doencas_map, nao_encontrado)
+    engine = Greetings(doencas_map, nao_encontrado, sys.argv[1], sendData, sendDataNotMatched)
     # loop to keep running the code until user says no when asked for another diagnosis
     while 1:
         engine.reset()
         engine.run()
+        # print(str(sys.argv))
         print("Gostaria de diagnosticar algum outro sintoma?\n Responda sim ou não.")
         if input() == "nao":
             exit()
