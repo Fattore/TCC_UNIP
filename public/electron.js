@@ -4,7 +4,6 @@ const BrowserWindow = electron.BrowserWindow;
 
 const path = require("path");
 const isDev = require("electron-is-dev");
-const {PythonShell} = require('python-shell');
 const { spawn } = require("child_process");
 const ipcMain = electron.ipcMain;
 
@@ -12,23 +11,27 @@ const { io } = require("socket.io-client");
 const socket = io("http://0.0.0.0:5000");
 let mainWindow;
 
-
 ipcMain.on("msg", (event, data)=> {
-    spawnPython(data)
-    socket.emit('get-data-python', 'Test data from the UI', (err, res) => {
-        ipcMain.send("fromPython", res)
+    socket.emit('get-data-python', data, (err, res) => {
+        console.log(res)
+        var result = res;
+
+        ipcMain.on('request-from-relatorio', function(event, arg) {
+            event.sender.send('response-to-relatorio', result);
+        });
     })
 })
 
-function spawnPython(data){
-    let py = spawn('python', [`${path.join(__dirname, "../src/script/IA/main.py")}`,data])
-   
+
+function spawnPython(){
+    let py = spawn('python', [`${path.join(__dirname, "../src/script/IA/main.py")}`])
+    
     py.stdout.on("data", (data) => {
         console.log(`stdout: ${data}`)
     })
 
     py.stderr.on("data", (data) => {
-        console.log(`stdout: ${data}`)
+        console.log(`error: ${data}`)
     })
 
     py.on("close", (code) => {
@@ -46,6 +49,8 @@ function createWindow() {
             nodeIntegration: true,
         }
     });
+
+    spawnPython();
  
     mainWindow.loadURL(
         isDev

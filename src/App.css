@@ -38,6 +38,12 @@
 	background: #e1f3ff;
 }
 
+.styleVF-container-relatorio {
+	background: #e1f3ff;
+	height: 650px;
+	margin-bottom: 3%;
+}
+
 .styleVF-formoutline {
 	margin-right: -100%; margin-top: 1%;
 }
@@ -54,6 +60,10 @@
 	margin: 5%
 }
 
+.style-marginfive-relatorio {
+	margin-top: 5%
+}
+
 .style-marginbottom {
 	margin-bottom: 5%
 }
@@ -63,7 +73,7 @@
 }
 
 .style-paddingtoptres {
-	padding-top: 3%
+	padding-top: 3%;
 }
 
 .card-header .fa {
@@ -92,4 +102,24 @@
 
 .style-fiquegrande {
 	width: 100% !important;
+}
+
+.loader-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #f8f8f8ad;
+}
+
+.loader {
+	left: 40%;
+	top: 35%;
+	z-index: 1000;
+	position: absolute;
+}
+
+.resize {
+	width: 85%;
 }

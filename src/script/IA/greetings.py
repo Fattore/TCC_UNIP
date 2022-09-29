@@ -5,300 +5,301 @@ import socketio
 
 class Greetings(KnowledgeEngine):
 
-    def __init__(self, doencas_map, nao_encontrado, dados_usuario, sendData, sendDataNotMatched):
+    def __init__(self, doencas_map, nao_encontrado, dados_usuario):
         self.doencas_map = doencas_map
         self.nao_encontrado = nao_encontrado
-        self.dados_usuario = dados_usuario.split(",")
-        self.sendData = sendData
-        self.sendDataNotMatched = sendDataNotMatched
+        self.dados_usuario = dados_usuario
+        self.max_count = 0
+        self.mid_count = 0
+        self.min_count = 0
+        self.max_disease = ""
+        self.mid_disease = ""
+        self.min_disease = ""
         KnowledgeEngine.__init__(self)
 
     # code giving instructions on how to use the Expert System
     @DefFacts()
     def _initial_action(self):
-        print("")
-        print("Sistema especialista de auxilio médico")
-        print("")
-        print("Você está sentindo algum desses sintomas?")
-        print("Responda sim ou não")
-        print("")
-        print(self.dados_usuario[0])
+        # print("")
+        # print("Sistema especialista de auxilio médico")
+        # print("")
+        # print("Você está sentindo algum desses sintomas?")
+        # print("Responda sim ou não")
+        # print("")
         yield Fact(action="procurar_doenca")
-    
 
     # perguntar ao usuario
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_de_cabeca=W())), salience=90)
     def sintoma_0(self):
-        self.declare(Fact(dor_de_cabeca=input("dor de cabeça: ")))
+        self.declare(Fact(dor_de_cabeca=self.dados_usuario[0]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(febre=W())), salience=89)
     def sintoma_1(self):
-        self.declare(Fact(febre=input("febre: ")))
+        self.declare(Fact(febre=self.dados_usuario[1]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(tontura=W())), salience=88)
     def sintoma_2(self):
-        self.declare(Fact(tontura=input("tontura: ")))    
+        self.declare(Fact(tontura=self.dados_usuario[2]))    
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_olho=W())), salience=87)
     def sintoma_3(self):
-        self.declare(Fact(dor_olho=input("dor no olho: ")))
+        self.declare(Fact(dor_olho=self.dados_usuario[3]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_paladar=W())), salience=86)
     def sintoma_4(self):
-        self.declare(Fact(perda_paladar=input("perda no paladar: ")))
+        self.declare(Fact(perda_paladar=self.dados_usuario[4]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(manchas_erupcoes=W())), salience=85)
     def sintoma_5(self):
-        self.declare(Fact(manchas_erupcoes=input("manchas ou erupçoes na pele: ")))
+        self.declare(Fact(manchas_erupcoes=self.dados_usuario[5]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(cansaco=W())), salience=84)
     def sintoma_6(self):
-        self.declare(Fact(cansaco=input("cansaço: ")))
+        self.declare(Fact(cansaco=self.dados_usuario[6]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_corpo=W())), salience=83)
     def sintoma_7(self):
-        self.declare(Fact(dor_corpo=input("dor no corpo: ")))
+        self.declare(Fact(dor_corpo=self.dados_usuario[7]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_osso=W())), salience=82)
     def sintoma_8(self):
-        self.declare(Fact(dor_osso=input("dor nos ossos ou nas articulações: ")))
+        self.declare(Fact(dor_osso=self.dados_usuario[8]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_abdominal=W())), salience=81)
     def sintoma_9(self):
-        self.declare(Fact(dor_abdominal=input("dor abdominal: ")))
+        self.declare(Fact(dor_abdominal=self.dados_usuario[9]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(nausea_vomito=W())), salience=80)
     def sintoma_10(self):
-        self.declare(Fact(nausea_vomito=input("nausea ou vomito: ")))
+        self.declare(Fact(nausea_vomito=self.dados_usuario[10]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(tosse=W())), salience=79)
     def sintoma_11(self):
-        self.declare(Fact(tosse=input("tosse: ")))
+        self.declare(Fact(tosse=self.dados_usuario[11]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(calafrio=W())), salience=78)
     def sintoma_12(self):
-        self.declare(Fact(calafrio=input("calafrio: ")))
+        self.declare(Fact(calafrio=self.dados_usuario[12]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(suores=W())), salience=77)
     def sintoma_13(self):
-        self.declare(Fact(suores=input("suores: ")))
+        self.declare(Fact(suores=self.dados_usuario[13]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(fraqueza=W())), salience=76)
     def sintoma_14(self):
-        self.declare(Fact(fraqueza=input("fraqueza: ")))
+        self.declare(Fact(fraqueza=self.dados_usuario[14]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(diarreia=W())), salience=75)
     def sintoma_15(self):
-        self.declare(Fact(diarreia=input("diarreia: ")))
+        self.declare(Fact(diarreia=self.dados_usuario[15]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(coceira_anal=W())), salience=74)
     def sintoma_16(self):
-        self.declare(Fact(coceira_anal=input("coceira_anal: ")))
+        self.declare(Fact(coceira_anal=self.dados_usuario[16]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(palpitacao=W())), salience=73)
     def sintoma_17(self):
-        self.declare(Fact(palpitacao=input("palpitação: ")))
+        self.declare(Fact(palpitacao=self.dados_usuario[17]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(impotencia=W())), salience=72)
     def sintoma_18(self):
-        self.declare(Fact(impotencia=input("impotencia: ")))
+        self.declare(Fact(impotencia=self.dados_usuario[18]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(emagrecimento=W())), salience=71)
     def sintoma_19(self):
-        self.declare(Fact(emagrecimento=input("emagrecimento: ")))
+        self.declare(Fact(emagrecimento=self.dados_usuario[19]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(end_aum_figado=W())), salience=70)
     def sintoma_20(self):
-        self.declare(Fact(end_aum_figado=input("endurecimento ou aumento do figado: ")))
+        self.declare(Fact(end_aum_figado=self.dados_usuario[20]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_muscular=W())), salience=69)
     def sintoma_21(self):
-        self.declare(Fact(dor_muscular=input("dor muscular: ")))
+        self.declare(Fact(dor_muscular=self.dados_usuario[21]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(sens_plen_gastr=W())), salience=68)
     def sintoma_22(self):
-        self.declare(Fact(sens_plen_gastr=input("sensação de plenitude gastrica: ")))
+        self.declare(Fact(sens_plen_gastr=self.dados_usuario[22]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_costas=W())), salience=67)
     def sintoma_23(self):
-        self.declare(Fact(dor_costas=input("dores nas costas: ")))
+        self.declare(Fact(dor_costas=self.dados_usuario[23]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dor_articulacao=W())), salience=66)
     def sintoma_24(self):
-        self.declare(Fact(dor_articulacao=input("dor articulacao: ")))
+        self.declare(Fact(dor_articulacao=self.dados_usuario[24]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(mal_estar=W())), salience=65)
     def sintoma_25(self):
-        self.declare(Fact(mal_estar=input("mal estar: ")))
+        self.declare(Fact(mal_estar=self.dados_usuario[25]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(acumulo_liq=W())), salience=64)
     def sintoma_26(self):
-        self.declare(Fact(acumulo_liq=input("Acumulo de liquido nas pernas ou braços: ")))
+        self.declare(Fact(acumulo_liq=self.dados_usuario[26]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(anemia_intensa=W())), salience=63)
     def sintoma_27(self):
-        self.declare(Fact(anemia_intensa=input("Anemia instensa: ")))
+        self.declare(Fact(anemia_intensa=self.dados_usuario[27]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(anorexia=W())), salience=62)
     def sintoma_28(self):
-        self.declare(Fact(anorexia=input("Anorexia: ")))
+        self.declare(Fact(anorexia=self.dados_usuario[28]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(astenia=W())), salience=61)
     def sintoma_29(self):
-        self.declare(Fact(astenia=input("Astenia: ")))
+        self.declare(Fact(astenia=self.dados_usuario[29]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(aum_baco=W())), salience=60)
     def sintoma_30(self):
-        self.declare(Fact(aum_baco=input("Aumento do baço: ")))
+        self.declare(Fact(aum_baco=self.dados_usuario[30]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(aum_testiculo=W())), salience=59)
     def sintoma_31(self):
-        self.declare(Fact(aum_testiculo=input("Aumento do volume do testículo: ")))
+        self.declare(Fact(aum_testiculo=self.dados_usuario[31]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(aum_ganglios=W())), salience=58)
     def sintoma_32(self):
-        self.declare(Fact(aum_ganglios=input("Aumento dos gânglios linfáticos: ")))
+        self.declare(Fact(aum_ganglios=self.dados_usuario[32]))
    
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(cefaleia=W())), salience=57)
     def sintoma_33(self):
-        self.declare(Fact(cefaleia=input("Cefaleia: ")))
+        self.declare(Fact(cefaleia=self.dados_usuario[33]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(coceira=W())), salience=56)
     def sintoma_34(self):
-        self.declare(Fact(coceira=input("Coceira: ")))
+        self.declare(Fact(coceira=self.dados_usuario[34]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(comp_nervos=W())), salience=55)
     def sintoma_35(self):
-        self.declare(Fact(comp_nervos=input("Comprometimento do(s) nervo(s) periférico(s): ")))
+        self.declare(Fact(comp_nervos=self.dados_usuario[35]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(constipacao=W())), salience=54)
     def sintoma_36(self):
-        self.declare(Fact(constipacao=input("Constipação: ")))
+        self.declare(Fact(constipacao=self.dados_usuario[36]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(convulsao=W())), salience=53)
     def sintoma_37(self):
-        self.declare(Fact(convulsao=input("Convulsão: ")))
+        self.declare(Fact(convulsao=self.dados_usuario[37]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dim_pelo_suor=W())), salience=52)
     def sintoma_38(self):
-        self.declare(Fact(dim_pelo_suor=input("Diminuição de pelo e/ou suor: ")))
+        self.declare(Fact(dim_pelo_suor=self.dados_usuario[38]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dim_sens_face=W())), salience=51)
     def sintoma_39(self):
-        self.declare(Fact(dim_sens_face=input("Diminuição ou ausência da sensibilidade muscular na face: ")))
+        self.declare(Fact(dim_sens_face=self.dados_usuario[39]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(dispineia=W())), salience=50)
     def sintoma_40(self):
-        self.declare(Fact(dispineia=input("Dispineia: ")))
+        self.declare(Fact(dispineia=self.dados_usuario[40]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(enjoo=W())), salience=49)
     def sintoma_41(self):
-        self.declare(Fact(enjoo=input("Enjoo: ")))
+        self.declare(Fact(enjoo=self.dados_usuario[41]))
     
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(est_confusional=W())), salience=48)
     def sintoma_42(self):
-        self.declare(Fact(est_confusional=input("Estado confusional agudo: ")))
+        self.declare(Fact(est_confusional=self.dados_usuario[42]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(fadiga=W())), salience=47)
     def sintoma_43(self):
-        self.declare(Fact(fadiga=input("Fadiga: ")))
+        self.declare(Fact(fadiga=self.dados_usuario[43]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(fezes_claras=W())), salience=46)
     def sintoma_44(self):
-        self.declare(Fact(fezes_claras=input("Fezes claras: ")))
+        self.declare(Fact(fezes_claras=self.dados_usuario[44]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(fisgadas=W())), salience=45)
     def sintoma_45(self):
-        self.declare(Fact(fisgadas=input("Fisgadas: ")))
+        self.declare(Fact(fisgadas=self.dados_usuario[45]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(formigamento=W())), salience=44)
     def sintoma_46(self):
-        self.declare(Fact(formigamento=input("Formigamento: ")))
+        self.declare(Fact(formigamento=self.dados_usuario[46]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(fotoboia=W())), salience=43)
     def sintoma_47(self):
-        self.declare(Fact(fotoboia=input("Fotofobia: ")))
+        self.declare(Fact(fotoboia=self.dados_usuario[47]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(hiperparasitemia=W())), salience=42)
     def sintoma_48(self):
-        self.declare(Fact(hiperparasitemia=input("Hiperparasitemia: ")))
+        self.declare(Fact(hiperparasitemia=self.dados_usuario[48]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(hipotensao_arterial=W())), salience=41)
     def sintoma_49(self):
-        self.declare(Fact(hipotensao_arterial=input("Hipotensão arterial: ")))
+        self.declare(Fact(hipotensao_arterial=self.dados_usuario[49]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(ictericia=W())), salience=40)
     def sintoma_50(self):
-        self.declare(Fact(ictericia=input("Ictericia: ")))
+        self.declare(Fact(ictericia=self.dados_usuario[50]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(infl_garganta=W())), salience=39)
     def sintoma_51(self):
-        self.declare(Fact(infl_garganta=input("Inflamação da garganta: ")))
+        self.declare(Fact(infl_garganta=self.dados_usuario[51]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(irritacao_olhos=W())), salience=38)
     def sintoma_52(self):
-        self.declare(Fact(irritacao_olhos=input("Irritação nos olhos: ")))
+        self.declare(Fact(irritacao_olhos=self.dados_usuario[52]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(moleza=W())), salience=37)
     def sintoma_53(self):
-        self.declare(Fact(moleza=input("Moleza: ")))
+        self.declare(Fact(moleza=self.dados_usuario[53]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(mucosas_amarelas=W())), salience=36)
     def sintoma_54(self):
-        self.declare(Fact(mucosas_amarelas=input("Mucosas amarelas: ")))
+        self.declare(Fact(mucosas_amarelas=self.dados_usuario[54]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(muito_cansaco=W())), salience=35)
     def sintoma_55(self):
-        self.declare(Fact(muito_cansaco=input("Muito cansaço: ")))
+        self.declare(Fact(muito_cansaco=self.dados_usuario[55]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(nodulos_corpo=W())), salience=34)
     def sintoma_56(self):
-        self.declare(Fact(nodulos_corpo=input("Nodulos no corpo: ")))
+        self.declare(Fact(nodulos_corpo=self.dados_usuario[56]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(olhos_amarelados=W())), salience=33)
     def sintoma_57(self):
-        self.declare(Fact(olhos_amarelados=input("Olhos amarelados: ")))
+        self.declare(Fact(olhos_amarelados=self.dados_usuario[57]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(oliguria=W())), salience=32)
     def sintoma_58(self):
-        self.declare(Fact(oliguria=input("Oligúria (insuficiência renal aguda): ")))
+        self.declare(Fact(oliguria=self.dados_usuario[58]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(pele_amarelada=W())), salience=31)
     def sintoma_59(self):
-        self.declare(Fact(pele_amarelada=input("Pele amarelada: ")))
+        self.declare(Fact(pele_amarelada=self.dados_usuario[59]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_apetite=W())), salience=30)
     def sintoma_60(self):
-        self.declare(Fact(perda_apetite=input("Perda de apetite: ")))
+        self.declare(Fact(perda_apetite=self.dados_usuario[60]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(perda_peso=W())), salience=29)
     def sintoma_61(self):
-        self.declare(Fact(perda_peso=input("Perda de peso: ")))
+        self.declare(Fact(perda_peso=self.dados_usuario[61]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(rash_cutanea=W())), salience=28)
     def sintoma_62(self):
-        self.declare(Fact(rash_cutanea=input("Rash Cutânea: ")))
+        self.declare(Fact(rash_cutanea=self.dados_usuario[62]))
      
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(sudorese_noturna=W())), salience=27)
     def sintoma_63(self):
-        self.declare(Fact(sudorese_noturna=input("Sudorese noturna: ")))
+        self.declare(Fact(sudorese_noturna=self.dados_usuario[63]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(sudorese_profusa=W())), salience=26)
     def sintoma_64(self):
-        self.declare(Fact(sudorese_profusa=input("Sudorese profusa: ")))
+        self.declare(Fact(sudorese_profusa=self.dados_usuario[64]))
  
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(tremor=W())), salience=25)
     def sintoma_65(self):
-        self.declare(Fact(tremor=input("Tremor: ")))
+        self.declare(Fact(tremor=self.dados_usuario[65]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(ulceras=W())), salience=24)
     def sintoma_66(self):
-        self.declare(Fact(ulceras=input("Úlceras: ")))
+        self.declare(Fact(ulceras=self.dados_usuario[66]))
 
     @Rule(Fact(action="procurar_doenca"), NOT(Fact(urina_escura=W())), salience=23)
     def sintoma_67(self):
-        self.declare(Fact(urina_escura=input("Urina escura: ")))
-
+        self.declare(Fact(urina_escura=self.dados_usuario[67]))
 
     @Rule(
         Fact(action="procurar_doenca"),
@@ -1413,8 +1414,6 @@ class Greetings(KnowledgeEngine):
         self.declare(Fact(doenca="Zika Virus"))
 
    
-
-
     # when the user's input doesn't match any disease in the knowledge base
     @Rule(Fact(action="procurar_doenca"), Fact(doenca=MATCH.doenca), salience=-997)
     def doenca(self, doenca):
@@ -1424,7 +1423,8 @@ class Greetings(KnowledgeEngine):
         print("Os sintomas coincidem com %s\n" % (id_disease))
         print("")
         print("")
-        self.sendData(id_disease)
+        self.max_disease = id_disease
+        self.max_count = 100
         
 
     @Rule(
@@ -1575,7 +1575,6 @@ class Greetings(KnowledgeEngine):
     ):
         print("\nNão foi encontrado nenhuma doença que coincide exatamente com os sintomas informados.")
 
-
         lis = [
             dor_de_cabeca,
             febre,
@@ -1658,7 +1657,7 @@ class Greetings(KnowledgeEngine):
             count = 0
             temp_list = eval(key)
             for j in range(0, len(lis)):
-                if temp_list[j] == lis[j] and (lis[j] == "alta" or lis[j] == "baixa" or lis[j] == "sim" or lis[j] == "nao"):
+                if temp_list[j] == lis[j] and (lis[j] == "alta" or lis[j] == "baixa" or lis[j] == "sim"):
                     count = count + 1
             if count > min_count:
                 if count > mid_count:
@@ -1680,5 +1679,14 @@ class Greetings(KnowledgeEngine):
                     min_disease = val
 
         if max_disease != "":
-            self.nao_encontrado(max_disease, max_count, mid_disease, mid_count, min_disease, min_count)
-            self.sendDataNotMatched(max_disease, max_count, mid_disease, mid_count, min_disease, min_count)
+            self.max_disease = max_disease
+            self.max_count = max_count
+
+            self.mid_disease = mid_disease
+            self.mid_count = mid_count
+
+            self.min_disease = min_disease
+            self.min_count = min_count
+        
+      
+            # self.nao_encontrado(max_disease, max_count, mid_disease, mid_count, min_disease, min_count)

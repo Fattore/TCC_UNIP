@@ -1,10 +1,17 @@
 import sys
 import os 
+import eventlet
+import socketio
 from greetings import Greetings
 lista_doencas = []
 doencas_sintomas = []
 doencas_map = {}
 cwd = os.getcwd() 
+
+sio = socketio.Server()
+app = socketio.WSGIApp(sio)
+
+
 # loads the knowledge from .txt files into variables to allow the code to use it
 def preprocess():
     #global diseases_list, diseases_symptoms, symptom_map, d_desc_map, d_treatment_map
@@ -51,55 +58,53 @@ def nao_encontrado(max_disease, max_count, mid_disease, mid_count, min_disease, 
             print("")
             print("")
 
+@sio.event
+def connect(sid, environ):
+    print('connect ', sid)
 
-def sendData(resultado_doenca):
-        sio = socketio.Server()
-        app = socketio.WSGIApp(sio)
-        @sio.event
-        def connect(sid, environ):
-            print('connect ', sid)
+@sio.on('get-data-python')
+def msg(sid, data):
+    print('message ', data)
 
-        @sio.on('get-data-python')
-        def msg(sid, data):
-            print('message ', data)
-            return "OK", resultado_doenca
+    preprocess()
+    engine = Greetings(doencas_map, nao_encontrado, data)
+    engine.reset()
+    engine.run()
+    resultado = ""
 
-        @sio.event
-        def disconnect(sid):
-            print('disconnect ', sid)
+    if(engine.max_disease != ""):
+        resultado = engine.max_disease + "_" +  engine.max_count.__str__() + "_"
 
-        eventlet.wsgi.server(eventlet.listen(('', 5000)), app)
+    if(engine.mid_disease != ""):
+        resultado = resultado + engine.mid_disease + "_" +  engine.mid_count.__str__() + "_"
 
-def sendDataNotMatched(max_disease, max_count, mid_disease, mid_count, min_disease, min_count):
-        sio = socketio.Server()
-        app = socketio.WSGIApp(sio)
-        @sio.event
-        def connect(sid, environ):
-            print('connect ', sid)
+    if(engine.min_disease != ""):
+        resultado = resultado + engine.min_disease + "_" +  engine.min_count.__str__() + "_"
 
-        @sio.on('get-data-python')
-        def msg(sid, data):
-            print('message ', data)
-            return "OK", max_disease
 
-        @sio.event
-        def disconnect(sid):
-            print('disconnect ', sid)
-
-        eventlet.wsgi.server(eventlet.listen(('', 5000)), app)
+    # print(engine.max_disease)
+    return "OK", resultado
+@sio.event
+def disconnect(sid):
+    print('disconnect ', sid)
 
 # driver function
 if __name__ == "__main__":
-    preprocess()
-    # creating class object
-    engine = Greetings(doencas_map, nao_encontrado, sys.argv[1], sendData, sendDataNotMatched)
-    # loop to keep running the code until user says no when asked for another diagnosis
-    while 1:
-        engine.reset()
-        engine.run()
-        # print(str(sys.argv))
-        print("Gostaria de diagnosticar algum outro sintoma?\n Responda sim ou não.")
-        if input() == "nao":
-            exit()
+    print("PYTHON MAIN INICIADO")
+    eventlet.wsgi.server(eventlet.listen(('', 5000)), app)
 
-sys.stdout.flush()
+    # preprocess()
+
+    # creating class object
+    # engine = Greetings(doencas_map, nao_encontrado, sys.argv[1])
+    # # loop to keep running the code until user says no when asked for another diagnosis
+    # while 1:
+    #     engine.reset()
+    #     engine.run()
+    #     print(engine.max_disease)
+    #     # print(str(sys.argv))
+    #     print("Gostaria de diagnosticar algum outro sintoma?\n Responda sim ou não.")
+    #     if input() == "nao":
+    #         exit()
+
+# sys.stdout.flush()
