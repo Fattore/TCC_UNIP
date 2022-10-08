@@ -20,7 +20,7 @@ const arrayDesc = [
 	{doenca: "Hepatite D", desc: "A hepatite D, também chamada de Delta, está associada com a presença do vírus do B da hepatite para causar a infecção e inflamação das células do fígado. Existem duas formas de infecção pelo HDV: coinfecção simultânea com o HBV e superinfecção do HDV em um indivíduo com infecção crônica pelo HBV. A hepatite D crônica é considerada a forma mais grave de hepatite viral crônica, com progressão mais rápida para cirrose e um risco aumentado para descompensação, CHC e morte (FATTOVICH et al., 2000; MALLET et al., 2017)."},
 	{doenca: "Influenza", desc: "A gripe é uma infecção aguda do sistema respiratório, provocado pelo vírus da influenza, com grande potencial de transmissão. Existem quatro tipos de vírus influenza/gripe: A, B, C e D. O vírus influenza A e B são responsáveis por epidemias sazonais, sendo o vírus influenza A responsável pelas grandes pandemias."},
 	{doenca: "Leishmanioses", desc: "Doença infecciosa, porém, não contagiosa, causada por parasitas do gênero Leishmania. Os parasitas vivem e se multiplicam no interior das células que fazem parte do sistema de defesa do indivíduo, chamadas macrófagos. Há dois tipos de leishmaniose: leishmaniose tegumentar ou cutânea e a leishmaniose visceral ou calazar. A leishmaniose tegumentar caracteriza-se por feridas na pele que se localizam com maior freqüência nas partes descobertas do corpo. Tardiamente, podem surgir feridas nas mucosas do nariz, da boca e da garganta. Essa forma de leishmaniose é conhecida como “ferida brava”. A leishmaniose visceral é uma doença sistêmica, pois, acomete vários órgãos internos, principalmente o fígado, o baço e a medula óssea. Esse tipo de leishmaniose acomete essencialmente crianças de até dez anos; após esta idade se torna menos freqüente. É uma doença de evolução longa, podendo durar alguns meses ou até ultrapassar o período de um ano."},
-	{doenca: "Malária", desc: "Doença infecciosa febril aguda, cujos agentes etiológicos são protozoários transmitidos por vetores (mosquito). Também é conhecida por: paludismo, impaludismo, febre palustre, febre intermitente, febre terçã benigna, febre terçã maligna, além de nomes populares, como maleita, sezão, tremedeira, batedeira ou febre. É reconhecida como grave problema de saúde pública no mundo, ocorrendo em quase 50% da população, em mais de 109 países e territórios. A estimativa anual de casos novos no mundo atinge a cifra de 300 milhões com 1 milhão de mortes, principalmente entre crianças menores de 5 anos e gestantes no continente africano. No Brasil, a região amazônica, zona rural, é considerada área endêmica para malária, responsável por mais de 90% dos casos notificados, concentrados em nove estados: Acre, Amapá, Amazonas, Pará, Rondônia, Roraima, Maranhão, Mato Grosso e Tocantins."},
+	{doenca: "Malaria", desc: "Doença infecciosa febril aguda, cujos agentes etiológicos são protozoários transmitidos por vetores (mosquito). Também é conhecida por: paludismo, impaludismo, febre palustre, febre intermitente, febre terçã benigna, febre terçã maligna, além de nomes populares, como maleita, sezão, tremedeira, batedeira ou febre. É reconhecida como grave problema de saúde pública no mundo, ocorrendo em quase 50% da população, em mais de 109 países e territórios. A estimativa anual de casos novos no mundo atinge a cifra de 300 milhões com 1 milhão de mortes, principalmente entre crianças menores de 5 anos e gestantes no continente africano. No Brasil, a região amazônica, zona rural, é considerada área endêmica para malária, responsável por mais de 90% dos casos notificados, concentrados em nove estados: Acre, Amapá, Amazonas, Pará, Rondônia, Roraima, Maranhão, Mato Grosso e Tocantins."},
 	{doenca: "Tuberculose", desc: "Tuberculose é uma doença infecciosa que pode acometer diversos órgãos, sendo o pulmão o mais frequente."},
 	{doenca: "Zika Vírus", desc: "O Zika Vírus é uma infecção causada pelo vírus Zika, transmitido pelo mosquito Aedes aegypti, o mesmo transmissor da dengue e da febre chikungunya. Ele é considerado uma ameaça à saúde mundial devido as fortes evidências de relação com a microcefalia e outras malformações congênitas – podendo afetar o desenvolvimento de fetos de mulheres contaminadas durante a gestação. Além disso, o Zika também pode acarretar outros problemas neurológicos, como meningite, mielite, encefalite e síndrome de Guillain Barré."},
 ]
@@ -29,7 +29,6 @@ const Relatorio = () => {
 	const [result, setResult] = useState([]);
 	const [max_disease, setMax_Disease] = useState();
 	const [desc, setDesc] = useState();
-
 	ipcRenderer.send("request-from-relatorio")
 	ipcRenderer.on('response-to-relatorio', (event, arg) => {
 		let arrayFromPython = arg.split("_")
@@ -63,7 +62,7 @@ const Relatorio = () => {
 								Doença Principal: {result[0]}
 							</h5>
 							<div class="card-body">
-								<b>Sintomas Positivos:</b> {result[1]}
+								<b>Sintomas Positivos:</b> {result[1] === "100" ? "Todos os sintomas são compativeis": result[1]}
 								<br/>
 								{desc}
 							</div>
